@@ -5,3 +5,33 @@ body{
 .darker{
     background-color:#111111;
 }
+
+.flex-container{
+    box-sizing: border-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: row;
+    -ms-flex-pack: center;
+    justify-content: center;
+    margin: 0 auto;
+    max-width: 1248px;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
+
+.side-content{
+    background-color:rgba(255, 0, 0, 0.37);
+    width: 300px;
+    padding: 12.5px 20px 0px 20px;
+}
+
+.side-content card{
+    margin:50px;
+}
+
+.feed-content{
+    background-color:rgba(255, 166, 0, 0.431);
+    display: flex;
+    width: 640px;
+    padding: 12.5px 20px 0px 20px;
+}
