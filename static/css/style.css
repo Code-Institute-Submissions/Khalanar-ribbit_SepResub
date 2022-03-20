@@ -1,9 +1,15 @@
 body{
-    color:#fffde7;
+    color:#d7dadc;
 }
 
 .darker{
     background-color:#111111;
+}
+
+.card{
+    border:1px solid #ffffff18;
+    background-color: #1a1a1bcc;
+    border-radius: 5px;
 }
 
 .flex-container{
@@ -20,7 +26,7 @@ body{
 }
 
 .side-content{
-    background-color:rgba(255, 0, 0, 0.37);
+    /* background-color:rgba(255, 0, 0, 0.37); */
     width: 300px;
     padding: 12.5px 20px 0px 20px;
 }
@@ -30,8 +36,12 @@ body{
 }
 
 .feed-content{
-    background-color:rgba(255, 166, 0, 0.431);
-    display: flex;
+    /* background-color:rgba(255, 166, 0, 0.431); */
+    /* display: flex; */
     width: 640px;
     padding: 12.5px 20px 0px 20px;
+}
+
+#page-title{
+    margin-top: 0px;
 }
