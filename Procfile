@@ -1,1 +1,1 @@
-web: gunicorn ribbitgit a.wsgi
+web: gunicorn ribbit.wsgi
