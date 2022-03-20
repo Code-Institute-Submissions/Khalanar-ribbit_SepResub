@@ -10,6 +10,9 @@
     <!-- materialisecss css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
 
+    <!-- material icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <style>
 
@@ -21,6 +24,8 @@
     <nav>
         <div class="nav-wrapper grey darken-4">
           <a href="#" class="brand-logo">Logo</a>
+          <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><a href="#">explore</a></li>
             <li><a href="#">tokens</a></li>
@@ -28,6 +33,15 @@
           </ul>
         </div>
     </nav>
+    <ul class="sidenav" id="mobile-demo">
+        <li><a href="#">explore</a></li>
+        <li><a href="#">tokens</a></li>
+        <li><a href="#">account</a></li>
+      </ul>
+    
+
+
+
     <section id="main">
         {% block content %}
         <!-- page specific content -->
@@ -42,9 +56,8 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             var navbar = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems);
+            var instances = M.Sidenav.init(navbar);
         });
-
     </script>
 </body>
 </html>
