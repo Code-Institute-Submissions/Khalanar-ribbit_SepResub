@@ -12,21 +12,12 @@
                         <li>settings</li>
                     </ul>
                 </div>
-            </div>
-            <div class="card">
-                <div class="card-content white-text">
-                    <span class="card-title">Explore</span>
-                    <ul id="categories-list">
-                        {% for category in categories %}
-                            <li><a href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-                
+            </div> 
         </div>
+        
         <div class="feed-content">
-            <h2 id="page-title">Homepage | all posts</h2>
+            <h2 id="page-title">r/{{ category.name }}</h2>
+            <div></div>
             {% for post in posts %}
             
             <div class="card">
@@ -37,6 +28,11 @@
                 </div>
             </div>
             {% endfor %}
+
+
+        
+            
+        
         </div>
     </div>
     

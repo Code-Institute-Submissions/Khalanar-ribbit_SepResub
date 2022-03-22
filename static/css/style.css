@@ -96,3 +96,19 @@ body{
 .small-top-padding{
     padding-top: 5px !important;
 }
+
+
+.card-comment{
+    /* background-color: red;; */
+    margin-left:50px;
+}
+
+.card-comment hr{
+    -webkit-box-sizing: content-box;
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+    border: none;
+    border-top: 1px solid #373737;
+    margin: 0px 30px; 
+}

@@ -1,0 +1,53 @@
+{% extends "wall/base.html" %}
+
+{% block content %}
+    <div class="flex-container">
+        <div class="side-content">
+            <div class="card">
+                <div class="card-content white-text">
+                    <span class="card-title">u/Username</span>
+                    <ul id="account-widget">
+                        <li>Name</li>
+                        <li>email</li>
+                        <li>settings</li>
+                    </ul>
+                </div>
+            </div> 
+        </div>
+        
+        <div class="feed-content">
+            <h2 id="page-title">{{ post.title }}</h2>
+            <div>by <span>u/username</span> in <span>r/{{ post.category }}</span></div>
+
+            <div class="card">
+                <div class="card-content white-text">
+                    <p>{{ post.content }}</p>
+                </div>
+            </div>
+            Comments:
+            <div class="card card-comment">
+                <div class="card-content white-text">
+                    <p>test</p>
+                </div>
+                <hr class="comment-separator">
+                <div class="card-content white-text">
+                    <p>test</p>
+                </div>
+                here
+                {% for comment in comments %}
+                comm
+                {% endfor %}
+                    <!-- <div class="card-content white-text">
+                        <p >User {{ comment.author }} said:</p>
+                        <p>{{ comment.body }}</p>
+                    </div>
+                    <hr class="comment-separator"> -->
+
+               
+
+            </div>
+        
+        </div>
+    </div>
+    
+{% endblock %}
