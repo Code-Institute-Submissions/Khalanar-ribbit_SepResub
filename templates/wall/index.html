@@ -5,12 +5,21 @@
         <div class="side-content">
             <div class="card">
                 <div class="card-content white-text">
-                    <span class="card-title">u/Username</span>
+                    {% if user.is_authenticated %}
+                    <span class="card-title">u/{{user.username}}</span>
                     <ul id="account-widget">
-                        <li>Name</li>
-                        <li>email</li>
+                        <li>{{user.email}}</li>
                         <li>settings</li>
+                        <li>create post</li>
                     </ul>
+                    {% else %}
+                    <span class="card-title">no user</span>
+                    <ul id="account-widget">
+                        <li><a href="{% url 'account_login' %}">log in</a></li>
+                        <li>register</li>
+                    </ul>
+                    {% endif %}
+
                 </div>
             </div>
             <div class="card">

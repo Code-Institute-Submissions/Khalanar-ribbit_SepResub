@@ -26,22 +26,21 @@
             </div>
             Comments:
             <div class="card card-comment">
-                <div class="card-content white-text">
+                <!-- <div class="card-content white-text">
                     <p>test</p>
                 </div>
                 <hr class="comment-separator">
                 <div class="card-content white-text">
                     <p>test</p>
-                </div>
-                here
+                </div> -->
                 {% for comment in comments %}
-                comm
-                {% endfor %}
-                    <!-- <div class="card-content white-text">
-                        <p >User {{ comment.author }} said:</p>
+                    <div class="card-content white-text">
+                        <p>{{ comment.author }} on {{ comment.date_created }}</p>
                         <p>{{ comment.body }}</p>
                     </div>
-                    <hr class="comment-separator"> -->
+                    <hr class="comment-separator">
+                {% endfor %}
+                   
 
                
 
