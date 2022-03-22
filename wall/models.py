@@ -8,15 +8,17 @@ class Category(models.Model):
     name = models.CharField(max_length=12, unique=True)
 
     class Meta:
+        '''ds'''
         verbose_name_plural = "categories"
 
     def __str__(self):
-        return self.name
+        return str(self.name)
 
 
 class Post(models.Model):
     '''Post model'''
     title = models.CharField(max_length=100, unique=True)
+    slug = models.SlugField(max_length=100, unique=True)
     content = models.TextField()
     featured_image = CloudinaryField('image', default='placeholder')
     excerpt = models.TextField(blank=True)

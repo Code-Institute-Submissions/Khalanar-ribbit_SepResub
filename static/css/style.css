@@ -1,6 +1,8 @@
 :root {
     --border-gray: #ffffff18;
     --transparent-gray: #1a1a1bcc;
+    /* --hover-line-color: #ffffff63; */
+    --hover-line-color: #ffffff44;
 }
 
 body{
@@ -22,26 +24,32 @@ body{
 }
 
 .card:hover{
-    border: 1px solid #ffffff63;
+    border: 1px solid var(--hover-line-color);
     border-radius: 4px;
 }
 
 #categories-list li{
     position: relative;
-    height:21px;
+    height:24px;
+    width: 150px;
+    
     display: block;
     padding: 0px 0px;
-    margin-right:3px;
-    margin-bottom: 10px;
+    margin: 0px auto 10px auto;
     border: 1px solid var(--border-gray);
     border-radius: 7px;
-    background-color: #ffffff21;
+    background-color: #ffffff0c;
 }
 
 #categories-list li a{
     position: absolute;
     width:100%;
     text-align:center;
+    color: #00e1ff87;
+}
+
+#categories-list li:hover{
+    background-color: #ffffff21;
 }
 
 .flex-container{
@@ -77,4 +85,14 @@ body{
 #page-title{
     margin-top: 0px;
     font-size: 2em;
+}
+
+.category-label{
+    font-size: 0.87em;
+    color: rgba(255, 255, 255, 0.521);
+    margin-bottom: 7px;
+}
+
+.small-top-padding{
+    padding-top: 5px !important;
 }

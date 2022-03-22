@@ -17,25 +17,26 @@
                 <div class="card-content white-text">
                     <span class="card-title">Explore</span>
                     <ul id="categories-list">
-                        <li><a href="#">AAA</a></li>
-                        <li><a href="#">BBB</a></li>
-                        <li><a href="#">CCC</a></li>
-                        <li><a href="#">DDD</a></li>
-                        <li><a href="#">EEE</a></li>
+                        {% for category in categories %}
+                            <li><a href="#">{{ category.name }}</a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
                 
         </div>
         <div class="feed-content">
-            <h2 id="page-title">Home page</h2>
+            <h2 id="page-title">Homepage | all posts</h2>
+            {% for post in posts %}
+            
             <div class="card">
-                <div class="card-content white-text">
-                    <span class="card-title">Post Title</span>
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                <div class="card-content white-text small-top-padding">
+                    <div class="category-label">r/{{ post.category }}</div>
+                    <span class="card-title">{{ post.title }}</span>
+                    <p>{{ post.content }}</p>
                 </div>
             </div>
+            {% endfor %}
         </div>
     </div>
     
