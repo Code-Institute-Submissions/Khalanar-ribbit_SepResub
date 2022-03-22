@@ -112,3 +112,25 @@ body{
     border-top: 1px solid #373737;
     margin: 0px 30px; 
 }
+
+.f-right{
+    float:right;
+}
+
+input{
+    background-color:rgb(24, 24, 24);
+    color: #d7dadc !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus, 
+input:-webkit-autofill:active{
+    -webkit-box-shadow: 0 0 0 30px rgb(24, 24, 24) inset !important;
+    -webkit-text-fill-color: #d7dadc !important;
+}
+
+/*Change text in autofill textbox*/
+input:-webkit-autofill{
+    -webkit-text-fill-color: #d7dadc !important;
+}
