@@ -1,8 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from django.views import generic, View
 from .models import Post, Category
+from .forms import CommentForm
 
-# Create your views here.
+
 class Home(generic.ListView):
     '''ds'''
     model = Post
@@ -35,6 +36,7 @@ class PostView(View):
                 'post': post,
                 'comments': comments,
                 'liked': liked,
+                'comment_form': CommentForm()
             },
         )
 

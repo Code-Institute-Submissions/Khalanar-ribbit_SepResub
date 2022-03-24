@@ -3,14 +3,38 @@
     --transparent-gray: #1a1a1bcc;
     /* --hover-line-color: #ffffff63; */
     --hover-line-color: #ffffff44;
+    --anchor-color: #00e1ff87;
+    --font-color-darkmode-primary: #d7dadc;
+    --font-color-darkmode-secondary: #898989;
+    
 }
 
 body{
-    color:#d7dadc;
+    color: var(--font-color-darkmode-primary);
+}
+
+a{
+    color: var(--anchor-color);
 }
 
 .darker{
     background-color:#111111;
+}
+
+.dark-btn{
+    font-size:0.9em;
+    background-color: var(--anchor-color)
+}
+
+textarea{
+    resize: vertical;
+}
+
+.centered{
+    margin: 25px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .card{
@@ -20,12 +44,32 @@ body{
 }
 
 .card p{
-    color: #898989;
+    color: var(--font-color-darkmode-secondary);
 }
 
 .card:hover{
     border: 1px solid var(--hover-line-color);
     border-radius: 4px;
+}
+
+#categories-list{
+    margin-bottom: 0px;
+}
+
+#comment-field-container{
+    padding:15px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#comment-field-container textarea{
+    color: var(--font-color-darkmode-secondary);
+    border-radius: 5px;
+}
+
+#comment-field-container *{
+    margin-bottom: 0px;
 }
 
 #categories-list li{
@@ -45,7 +89,7 @@ body{
     position: absolute;
     width:100%;
     text-align:center;
-    color: #00e1ff87;
+    color: var(--anchor-color);
 }
 
 #categories-list li:hover{
@@ -67,7 +111,7 @@ body{
 
 .side-content{
     /* background-color:rgba(255, 0, 0, 0.37); */
-    width: 300px;
+    width: 250px;
     padding: 12.5px 20px 0px 20px;
 }
 
@@ -113,6 +157,10 @@ body{
     margin: 0px 30px; 
 }
 
+.light-text{
+   color: var(--font-color-darkmode-secondary);
+}
+
 .f-right{
     float:right;
 }
@@ -133,4 +181,15 @@ input:-webkit-autofill:active{
 /*Change text in autofill textbox*/
 input:-webkit-autofill{
     -webkit-text-fill-color: #d7dadc !important;
+}
+
+.padding-bottom-big{
+    padding-bottom:50px !important;
+}
+
+#account-widget{
+}
+
+.padding-bottom-less{
+    padding-bottom: 15px !important;
 }

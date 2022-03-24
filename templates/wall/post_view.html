@@ -1,18 +1,12 @@
 {% extends "wall/base.html" %}
 
 {% block content %}
+
+{% load crispy_forms_tags %}
+
     <div class="flex-container">
         <div class="side-content">
-            <div class="card">
-                <div class="card-content white-text">
-                    <span class="card-title">u/Username</span>
-                    <ul id="account-widget">
-                        <li>Name</li>
-                        <li>email</li>
-                        <li>settings</li>
-                    </ul>
-                </div>
-            </div> 
+            {% include "wall/modules/user_module.html" %}
         </div>
         
         <div class="feed-content">
@@ -33,19 +27,42 @@
                 <div class="card-content white-text">
                     <p>test</p>
                 </div> -->
-                {% for comment in comments %}
-                    <div class="card-content white-text">
-                        <p>{{ comment.author }} on {{ comment.date_created }}</p>
-                        <p>{{ comment.body }}</p>
-                    </div>
-                    <hr class="comment-separator">
-                {% endfor %}
-                   
+                {% if comments.count > 0%}
+                    {% for comment in comments %}
+                        <div class="card-content white-text">
+                            <p>{{ comment.author }} on {{ comment.date_created }}</p>
+                            <p>{{ comment.body }}</p>
+                        </div>
+                        <hr class="comment-separator">
+                    {% endfor %}
+                {% else %}
+                <div class="card-content white-text">
+                    <p>Be the first to comment</p>
+                    
+                </div>
+                <hr class="comment-separator">
+                {% endif %}
 
-               
-
+                {% if user.is_authenticated %}
+                <div id="comment-field-container">
+                    <form method="post" style="">
+                        <div class="row">
+                            <div class="col s10">
+                                {{ comment_form | crispy }}
+                                {% csrf_token %}
+                            </div>
+                            
+                        </div>
+                        <div class="col s2" style="margin-top:15px">
+                            <button type="submit" class="btn dark-btn f-right">Send</button>
+                        </div>
+                        
+                    </form>
+                    
+                    <!-- <textarea id="">hh</textarea> -->
+                </div>
+                {% endif %}
             </div>
-        
         </div>
     </div>
     

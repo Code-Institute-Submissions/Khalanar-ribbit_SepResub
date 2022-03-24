@@ -3,16 +3,7 @@
 {% block content %}
     <div class="flex-container">
         <div class="side-content">
-            <div class="card">
-                <div class="card-content white-text">
-                    <span class="card-title">u/Username</span>
-                    <ul id="account-widget">
-                        <li>Name</li>
-                        <li>email</li>
-                        <li>settings</li>
-                    </ul>
-                </div>
-            </div> 
+            {% include 'wall/modules/user_module.html' %}
         </div>
         
         <div class="feed-content">

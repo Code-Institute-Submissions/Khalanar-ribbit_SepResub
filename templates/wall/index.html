@@ -3,39 +3,11 @@
 {% block content %}
     <div class="flex-container">
         <div class="side-content">
-            <div class="card">
-                <div class="card-content white-text">
-                    {% if user.is_authenticated %}
-                    <span class="card-title">u/{{user.username}}</span>
-                    <ul id="account-widget">
-                        <li>{{user.email}}</li>
-                        <li>settings</li>
-                        <li>create post</li>
-                    </ul>
-                    {% else %}
-                    <span class="card-title">no user</span>
-                    <ul id="account-widget">
-                        <li><a href="{% url 'account_login' %}">log in</a></li>
-                        <li>register</li>
-                    </ul>
-                    {% endif %}
-
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content white-text">
-                    <span class="card-title">Explore</span>
-                    <ul id="categories-list">
-                        {% for category in categories %}
-                            <li><a href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </div>
-                
+            {% include "wall/modules/user_module.html" %}
+            {% include "wall/modules/explore_module.html" %}
         </div>
         <div class="feed-content">
-            <h2 id="page-title">Homepage | all posts</h2>
+            <h2 id="page-title">Home</h2>
             {% for post in posts %}
             
             <div class="card">

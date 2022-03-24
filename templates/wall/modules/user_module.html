@@ -1,0 +1,22 @@
+<div id="account-widget" class="card">
+    <div class="card-content padding-bottom-less">
+        {% if user.is_authenticated %}
+        <span id="username" class="card-title">u/{{user.username}}</span>
+        <a href="{% url 'account_logout' %}">log out</a>
+        <ul id="account-widget-list" class="light-text">
+           
+            <li>{{user.email}}</li>
+            <li>settings</li>
+            
+        </ul>
+        <button class="btn dark-btn centered">create post</button>
+        {% else %}
+        <span class="card-title">not logged in</span>
+        <ul id="account-widget">
+            <li><a href="{% url 'account_login' %}">log in</a></li>
+            <li><a href="{% url 'account_signup' %}">register</a></li>
+        </ul>
+        {% endif %}
+
+    </div>
+</div>
