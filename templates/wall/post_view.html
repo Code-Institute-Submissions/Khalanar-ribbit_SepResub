@@ -42,6 +42,10 @@
                 </div>
                 <hr class="comment-separator">
                 {% endif %}
+                
+                {% if commented %}
+                <div>Comment posted!</div>
+                {% else %}
 
                 {% if user.is_authenticated %}
                 <div id="comment-field-container">
@@ -61,6 +65,7 @@
                     
                     <!-- <textarea id="">hh</textarea> -->
                 </div>
+                {% endif %}
                 {% endif %}
             </div>
         </div>

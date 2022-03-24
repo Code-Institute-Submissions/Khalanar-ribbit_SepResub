@@ -28,6 +28,33 @@ a{
 
 textarea{
     resize: vertical;
+    color: var(--font-color-darkmode-secondary);
+    padding:10px;
+    margin: 10px 0px;
+    height: 100px;
+}
+
+.dropdown-content{
+    background-color: #252525;
+    border-radius: 10px;
+}
+
+.dropdown-content li>span{
+    color: var(--font-color-darkmode-secondary);
+}
+
+#profile-pic-container{
+    height:100px;
+    width: 100px;
+    background-color: rgb(70, 70, 70);
+    border-radius: 50%;
+    margin: 0px auto 20px auto;
+    overflow: hidden;
+}
+
+#profile-pic{
+    height:100px;
+    width: 100px;
 }
 
 .centered{

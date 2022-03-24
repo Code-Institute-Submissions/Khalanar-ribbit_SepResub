@@ -1,6 +1,9 @@
 <div id="account-widget" class="card">
     <div class="card-content padding-bottom-less">
         {% if user.is_authenticated %}
+        <div id="profile-pic-container">
+            <img id="profile-pic" src="{{ request.user.userprofile.profile_picture.url }}">
+        </div>
         <span id="username" class="card-title">u/{{user.username}}</span>
         <a href="{% url 'account_logout' %}">log out</a>
         <ul id="account-widget-list" class="light-text">
@@ -9,8 +12,9 @@
             <li>settings</li>
             
         </ul>
-        <button class="btn dark-btn centered">create post</button>
+        <a class="btn dark-btn centered" href="{% url 'new_post' %}">create post</a>
         {% else %}
+        <div id="profile-pic"></div>
         <span class="card-title">not logged in</span>
         <ul id="account-widget">
             <li><a href="{% url 'account_login' %}">log in</a></li>

@@ -1,7 +1,8 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
+from django.http import HttpResponseRedirect
 from .models import Post, Category
-from .forms import CommentForm
+from .forms import CommentForm, PostForm
 
 
 class Home(generic.ListView):
@@ -24,7 +25,7 @@ class PostView(View):
         '''ds'''
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
-        comments = post.comments.filter(post=post).order_by("-date_created")
+        comments = post.comments.filter(post=post).order_by("date_created")
         liked = False
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
@@ -35,6 +36,37 @@ class PostView(View):
             {
                 'post': post,
                 'comments': comments,
+                'commented': False,
+                'liked': liked,
+                'comment_form': CommentForm()
+            },
+        )
+    def post(self, request, slug, *args, **kwargs):
+        '''ds'''
+        queryset = Post.objects.all()
+        post = get_object_or_404(queryset, slug=slug)
+        comments = post.comments.filter(post=post).order_by("date_created")
+        liked = False
+        if post.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        comment_form = CommentForm(data=request.POST)
+        if comment_form.is_valid():
+            comment_form.instance.author = request.user
+            comment = comment_form.save(commit=False)
+            comment.post = post
+            comment.save()
+            return HttpResponseRedirect(reverse('post_view', args=[slug]))
+        else:
+            comment_form = CommentForm()
+
+        return render(
+            request,
+            'wall/post_view.html',
+            {
+                'post': post,
+                'comments': comments,
+                'commented': False,
                 'liked': liked,
                 'comment_form': CommentForm()
             },
@@ -56,3 +88,32 @@ class CategoryView(View):
                 'posts': posts,
             },
         )
+
+
+class NewPostView(View):
+    '''ds'''
+    def get(self, request, *args, **kwargs):
+            '''ds'''
+            return render(
+                request,
+                'wall/new_post.html',
+                {
+                    'post_form': PostForm(),
+                },
+            )
+    
+    def post(self, request, *args, **kwargs):
+        '''ds'''
+        post_form = PostForm(data=request.POST)
+        if post_form.is_valid():
+            post_form.instance.author = request.user
+            post = post_form.save(commit=False)
+            post.slug = post_form.cleaned_data['title'].replace(" ", "-").lower()
+            category = post_form.cleaned_data['category']
+
+            post.save()
+            # return HttpResponseRedirect(reverse('post_view')
+        else:
+            post_form = PostForm()
+
+        return redirect('category_view', category=category)

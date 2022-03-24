@@ -56,3 +56,16 @@ class Comment(models.Model):
     def __str__(self):
         '''ds'''
         return f"Comment {self.body} by {self.author}"
+
+
+class UserProfile(models.Model):
+    '''ds'''
+    user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
+    name = models.CharField(max_length=12, unique=False)
+    dark_mode = models.BooleanField()
+    profile_picture = CloudinaryField('profile_pic', default='profile_pic_placeholder')
+    favorite_categories = models.ManyToManyField(Category, related_name='favorite_categories', blank=True)
+    saved_posts = models.ManyToManyField(Post, related_name='favorite_categories', blank=True)
+
+    def __str__(self):
+        return str(self.name)
