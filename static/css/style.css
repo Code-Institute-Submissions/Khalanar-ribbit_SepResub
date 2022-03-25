@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400&display=swap');
+
 :root {
     --border-gray: #ffffff18;
     --transparent-gray: #1a1a1bcc;
@@ -5,12 +7,12 @@
     --hover-line-color: #ffffff44;
     --anchor-color: #00e1ff87;
     --font-color-darkmode-primary: #d7dadc;
-    --font-color-darkmode-secondary: #898989;
-    
+    --font-color-darkmode-secondary: #afafaf;
 }
 
 body{
     color: var(--font-color-darkmode-primary);
+    font-family: Roboto, sans-serif;
 }
 
 a{
@@ -162,10 +164,35 @@ textarea{
     font-size: 2em;
 }
 
-.category-label{
+.module-title{
+    font-weight: 400 !important;
+    font-size: 24px;
+    color: var(--font-color-darkmode-primary);
+}
+
+.card-title{
+    font-weight: 400 !important;
+}
+
+.card-title a:hover{
+    opacity: 1;
+}
+
+.full-anchor{
+    position: absolute;
+    top:0;
+    left:0;
+    width: 100%;
+    height: 100%;
+}
+
+.category-label a{
     font-size: 0.87em;
     color: rgba(255, 255, 255, 0.521);
-    margin-bottom: 7px;
+}
+
+.category-label a:hover{
+    text-decoration: underline;
 }
 
 .small-vertical-padding{

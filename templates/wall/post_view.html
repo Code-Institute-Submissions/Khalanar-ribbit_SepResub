@@ -24,7 +24,7 @@
                 {% if comments.count > 0 %}
                     {% for comment in comments %}
                         <div class="card-content white-text">
-                            <p>{{ comment.author }} on {{ comment.date_created }}</p>
+                            <p>u/{{ comment.author }} on {{ comment.date_created }}</p>
                             <p>{{ comment.body }}</p>
                         </div>
                         <hr class="comment-separator">
@@ -32,7 +32,6 @@
                 {% else %}
                 <div class="card-content white-text">
                     <p>Be the first to comment</p>
-                    
                 </div>
                 <hr class="comment-separator">
                 {% endif %}

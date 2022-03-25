@@ -1,6 +1,12 @@
 <div class="card">
+    
     <div class="card-content white-text small-vertical-padding">
-        <div class="category-label">r/{{ post.category }}</div>
+        
+        <div class="category-label">
+            <a href="{% url 'category_view' post.category %}">r/{{ post.category }}</a>
+            <a href="#" class="full-anchor"></a>
+        </div>
+        
         <span class="card-title"><a href="{% url 'post_view' post.slug %}">{{ post.title }}</a></span>
         <p class="post-content">{{ post.content }}</p>
         <div class="comments-likes">
@@ -9,5 +15,7 @@
                 <i class="small material-icons">favorite_border</i> {{ post.likes.count }}
             </p>
         </div>
+        
     </div>
+    
 </div>
