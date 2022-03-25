@@ -1,0 +1,13 @@
+<div class="card">
+    <div class="card-content white-text small-vertical-padding">
+        <div class="category-label">r/{{ post.category }}</div>
+        <span class="card-title"><a href="{% url 'post_view' post.slug %}">{{ post.title }}</a></span>
+        <p class="post-content">{{ post.content }}</p>
+        <div class="comments-likes">
+            <p>
+                <i class="small material-icons">chat_bubble_outline</i> {{ post.comments.count }} 
+                <i class="small material-icons">favorite_border</i> {{ post.likes.count }}
+            </p>
+        </div>
+    </div>
+</div>

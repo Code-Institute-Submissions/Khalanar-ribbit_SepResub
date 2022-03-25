@@ -10,13 +10,8 @@
             <h2 id="page-title">Home</h2>
             {% for post in posts %}
             
-            <div class="card">
-                <div class="card-content white-text small-top-padding">
-                    <div class="category-label">r/{{ post.category }}</div>
-                    <span class="card-title"><a href="{% url 'post_view' post.slug %}">{{ post.title }}</a></span>
-                    <p>{{ post.content }}</p>
-                </div>
-            </div>
+            {% include "wall/modules/post_module.html" with post=post%}
+            
             {% endfor %}
         </div>
     </div>
