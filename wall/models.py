@@ -58,7 +58,7 @@ class Comment(models.Model):
         return f"Comment {self.body} by {self.author}"
 
 
-class UserProfile(models.Model):
+class Profile(models.Model):
     '''ds'''
     user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=12, unique=False)

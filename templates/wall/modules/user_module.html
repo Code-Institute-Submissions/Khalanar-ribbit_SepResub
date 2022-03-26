@@ -2,7 +2,7 @@
     <div class="card-content padding-bottom-less">
         {% if user.is_authenticated %}
         <div id="profile-pic-container">
-            <img id="profile-pic" src="{{ request.user.userprofile.profile_picture.url }}">
+            <img id="profile-pic" src="{{ request.user.profile.profile_picture.url }}">
         </div>
         <span id="username" class="card-title">u/{{user.username}}</span>
         <a href="{% url 'account_logout' %}">log out</a>
@@ -12,7 +12,7 @@
             <li>settings</li>
             
         </ul>
-        <a class="btn dark-btn centered" href="{% url 'new_post' %}">create post</a>
+        <a class="btn accent-btn centered" href="{% url 'new_post' %}">create post</a>
         {% else %}
         <div id="profile-pic"></div>
         <span class="card-title">not logged in</span>

@@ -1,4 +1,4 @@
-from .models import Comment, Post
+from .models import Comment, Post, Category
 from django import forms
 from crispy_forms.helper import FormHelper
 
@@ -32,3 +32,16 @@ class PostForm(forms.ModelForm):
         fields = ('title', 'content', 'category')
         # exclude = ['bbb']
 
+
+class CategoryForm(forms.ModelForm):
+    '''ds'''
+
+    def __init__(self, *args, **kwargs):
+        '''ds'''
+        super(CategoryForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        
+    class Meta:
+        '''ds'''
+        model = Category
+        fields = ('name',)

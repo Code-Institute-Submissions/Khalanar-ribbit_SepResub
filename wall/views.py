@@ -2,15 +2,13 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Category
-from .forms import CommentForm, PostForm
+from .forms import CommentForm, PostForm, CategoryForm
 
 
 class Home(generic.ListView):
     '''ds'''
     model = Post
     template_name = 'wall/index.html'
-    # queryset = 'Post.objects.filter(status=1)'
-    # queryset = Post.objects.all()
     paginate_by = 6
     
     def get_context_data(self, **kwargs):
@@ -117,3 +115,45 @@ class NewPostView(View):
             post_form = PostForm()
 
         return redirect('category_view', category=category)
+
+
+
+class NewCategoryView(View):
+    '''ds'''
+    def get(self, request, *args, **kwargs):
+            '''ds'''
+            return render(
+                request,
+                'wall/new_category.html',
+                {
+                    'category_form': CategoryForm(),
+                },
+            )
+    
+    def post(self, request, *args, **kwargs):
+        '''ds'''
+        category_form = CategoryForm(data=request.POST)
+        if category_form.is_valid():
+            category_form.instance.author = request.user
+            category = category_form.save(commit=False)
+ 
+
+            category.save()
+            # return HttpResponseRedirect(reverse('post_view')
+        else:
+            category_form = CategoryForm()
+
+        return redirect('category_view', category=category)
+
+class LikePost(View):
+    '''ds'''
+    def post(self, request, slug):
+        '''ds'''
+        post = get_object_or_404(Post, slug=slug)
+        
+        if post.likes.filter(id=request.user.id).exists():
+            post.likes.remove(request.user)
+        else:
+            post.likes.add(request.user)
+        
+        return redirect('home')

@@ -3,19 +3,33 @@
     <div class="card-content white-text small-vertical-padding">
         
         <div class="category-label">
-            <a href="{% url 'category_view' post.category %}">r/{{ post.category }}</a>
-            <a href="#" class="full-anchor"></a>
+            <a href="{% url 'category_view' post.category %}" class="floaty-anchor">r/{{ post.category }}</a>
+            <a href="{% url 'post_view' post.slug %}" class="full-anchor"></a>
         </div>
         
-        <span class="card-title"><a href="{% url 'post_view' post.slug %}">{{ post.title }}</a></span>
+        <span class="card-title">{{ post.title }}</span>
         <p class="post-content">{{ post.content }}</p>
+        {% if user.is_authenticated %}
         <div class="comments-likes">
-            <p>
-                <i class="small material-icons">chat_bubble_outline</i> {{ post.comments.count }} 
-                <i class="small material-icons">favorite_border</i> {{ post.likes.count }}
-            </p>
+            
+            <a href="#" class="floaty-anchor">
+                <i class="small material-icons">chat_bubble_outline</i>
+            </a> {{ post.comments.count }} 
+            <form style="display:inline;" action="{% url 'post_like' post.slug %}" method="POST">
+                {% csrf_token %}
+                <button type="submit" class="clear-btn floaty-anchor">
+                    <i class="small material-icons">
+                        {% if user in post.likes.all %}
+                            favorite
+                        {% else %}
+                            favorite_border
+                        {% endif %}
+                    </i>
+                    <span class="counter">{{ post.likes.count }}</span>
+                </button>
+            </form>
         </div>
-        
+        {% endif %}
     </div>
     
 </div>
