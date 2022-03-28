@@ -21,6 +21,22 @@ a{
     color: var(--anchor-color);
 }
 
+.mask-content{
+    -webkit-mask-image: linear-gradient(180deg,rgb(0, 0, 0) 50%, transparent);
+    mask-image: linear-gradient(180deg,#000 100%,transparent);
+    padding: 5px 8px 10px;
+    max-height: 100px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.card-content p {
+    margin: 0;
+    /* max-height: 100px; */
+    overflow: hidden;
+    padding-right: 10px;
+}
+
 .darker{
     background-color:#111111;
 }

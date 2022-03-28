@@ -8,26 +8,18 @@
         </div>
         
         <span class="card-title">{{ post.title }}</span>
-        <p class="post-content">{{ post.content }}</p>
+        <div class="mask-content">
+            <a href="/p/asd/" class="full-anchor"></a>
+           <p class="post-content">{{ post.content }}</p> 
+        </div>
+        
         {% if user.is_authenticated %}
         <div class="comments-likes">
             
             <a href="#" class="floaty-anchor">
                 <i class="small material-icons">chat_bubble_outline</i>
             </a> {{ post.comments.count }} 
-            <form style="display:inline;" action="{% url 'post_like' post.slug %}" method="POST">
-                {% csrf_token %}
-                <button type="submit" class="clear-btn floaty-anchor">
-                    <i class="small material-icons">
-                        {% if user in post.likes.all %}
-                            favorite
-                        {% else %}
-                            favorite_border
-                        {% endif %}
-                    </i>
-                    <span class="counter">{{ post.likes.count }}</span>
-                </button>
-            </form>
+            {% include "wall/modules/like_button.html" %}
         </div>
         {% endif %}
     </div>
