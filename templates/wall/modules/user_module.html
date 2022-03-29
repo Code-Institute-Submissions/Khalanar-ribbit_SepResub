@@ -9,7 +9,7 @@
         <ul id="account-widget-list" class="light-text">
            
             <li>{{user.email}}</li>
-            <li>settings</li>
+            <li><a href="{% url 'edit_profile' %}">settings</a></li>
             
         </ul>
         <a class="btn accent-btn centered" href="{% url 'new_post' %}">create post</a>

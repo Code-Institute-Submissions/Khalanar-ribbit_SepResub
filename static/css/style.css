@@ -275,7 +275,10 @@ textarea{
 }
 
 .f-right{
-    float:right;
+    /* float:right; */
+    right: 10px;
+    bottom: 10px;
+    position: absolute;
 }
 
 input{
@@ -315,6 +318,12 @@ input:-webkit-autofill{
 
 .comments-likes span{
     color: var(--font-color-darkmode-secondary);
+}
+
+#div_id_profile_picture label{
+    display: block;
+    margin-bottom: 20px;
+    position: relative;
 }
 
 i.small{

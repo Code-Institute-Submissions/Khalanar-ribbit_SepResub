@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Category
-from .forms import CommentForm, PostForm, CategoryForm
+from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
 
 
 class Home(generic.ListView):
@@ -157,3 +157,15 @@ class LikePost(View):
             post.likes.add(request.user)
         
         return redirect('home')
+
+class EditProfile(View):
+    '''ds'''
+    def get(self, request, *args, **kwargs):
+        '''ds'''
+        return render(
+            request,
+            'wall/edit_profile.html',
+            {
+                'profile_form': ProfileForm(),
+            },
+        )
