@@ -186,7 +186,7 @@ textarea{
 .side-content{
     /* background-color:rgba(255, 0, 0, 0.37); */
     min-width: 250px;
-    padding: 12.5px 20px 0px 20px;
+    padding: 12.5px 5px 0px 20px;
 }
 
 .side-content card{
@@ -197,7 +197,7 @@ textarea{
     /* background-color:rgba(255, 166, 0, 0.431); */
     /* display: flex; */
     width: 640px;
-    padding: 12.5px 20px 0px 5px;
+    padding: 12.5px 20px 0px 20px;
 }
 
 #page-title{
@@ -337,3 +337,9 @@ i.small{
 .create_category-button{
     background-color: var (--accent-color-secondary);
 }
+
+@media only screen and (max-width: 800px) {
+    .side-content {
+      display: none;
+    }
+  }
