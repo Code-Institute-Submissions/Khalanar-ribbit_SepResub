@@ -10,13 +10,21 @@
         </div>
         
         <div class="feed-content">
-            <h2 id="page-title">{{ post.title }}</h2>
-            <div>by <span>u/{{ post.author }}</span> in <span><a href="{% url 'category_view' post.category.name %}">r/{{ post.category }}</a></span></div>
+   
 
             <div class="card">
-                <div class="card-content white-text">
+                <div class="card-content white-text small-vertical-padding">
                     <div class="row">
                         <div class="col s11">
+                            <div class="category-label">
+                                <a href="{% url 'category_view' post.category %}" class="floaty-anchor">r/{{ post.category }}</a>
+                                <span class="secondary_text small">by
+                                <a href="">u/{{ post.author }}</a> in 
+                                {{ post.date_created }}</span>
+                            </div>
+                            
+                            
+                            <span class="card-title">{{ post.title }}</span>
                             <p>{{ post.content }}</p>
                         </div>
                         <div class="col s1">
@@ -29,12 +37,11 @@
             </div>
             Comments:
             <div class="card card-comment">
-
                 {% if comments.count > 0 %}
                     {% for comment in comments %}
                         <div class="card-content white-text">
-                            <p>u/{{ comment.author }} on <i>{{ comment.date_created }}</i></p>
-                            <p>{{ comment.body }}</p>
+                            <p><a href="#" class="comment-author">u/{{ comment.author }}</a> <span class="secondary_text">{{ comment.date_created }}</span></p>
+                            <p class="comment-body">{{ comment.body }}</p>
                         </div>
                         <hr class="comment-separator">
                     {% endfor %}

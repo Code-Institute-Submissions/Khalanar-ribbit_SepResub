@@ -8,8 +8,8 @@
     --anchor-color: #00e1ff87;
     --accent-color-primary: #00e1ff87;
     --accent-color-secondary: #2bbbad;
-    --font-color-darkmode-primary: #dbdbdb;
-    --font-color-darkmode-secondary: #afafaf;
+    --font-color-darkmode-primary: #dbdbdbe7;
+    --font-color-darkmode-secondary: #757575;
 }
 
 body{
@@ -48,6 +48,15 @@ a{
 .accent-btn:hover{
     font-size:0.9em;
     background-color: var(--accent-color-secondary)
+}
+
+.secondary_text{
+    color: var(--font-color-darkmode-secondary);
+    font-weight: 200;
+}
+
+.small{
+    font-size: 0.87em;
 }
 
 textarea{
@@ -99,7 +108,8 @@ textarea{
 }
 
 .card p{
-    color: var(--font-color-darkmode-secondary);
+    color: var(--font-color-darkmode-primary);
+    line-height: 1.8em;
 }
 
 .card:hover{
@@ -213,7 +223,8 @@ textarea{
 
 .card-title{
     font-weight: 400 !important;
-    color: var(--font-color-darkmode-primary)
+    color: var(--font-color-darkmode-primary);
+    margin: 10px 0px 0px 0px;
 }
 
 .floaty-anchor{
@@ -302,6 +313,10 @@ input:-webkit-autofill{
     font-size: 0.87em;
 }
 
+.comments-likes span{
+    color: var(--font-color-darkmode-secondary);
+}
+
 i.small{
     font-size: 1.4rem;
 }
@@ -338,8 +353,19 @@ i.small{
     background-color: var (--accent-color-secondary);
 }
 
+.comment-author{
+}
+
+.comment-date{
+    color: #afafaf91;
+}
+
+.comment-body{
+
+}
+
 @media only screen and (max-width: 800px) {
     .side-content {
       display: none;
     }
-  }
+}
