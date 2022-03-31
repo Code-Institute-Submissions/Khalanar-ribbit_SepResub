@@ -5,7 +5,7 @@
 {% load crispy_forms_tags %}
 <div class="row">
     <div class="col s8 offset-s2 m6 offset-m3">
-        <h2 id="page-title">New Category</h2>
+        <h2 id="page-title" style="margin-top: 15px;">New Category</h2>
         <div class="card">
             
 
@@ -13,7 +13,7 @@
                 <form method="post" style="">
                     {{ category_form | crispy }}
                     {% csrf_token %}
-                    <button type="submit" class="btn dark-btn f-right">Send</button>
+                    <button type="submit" class="btn dark-btn btn-form-br">Send</button>
                 </form>
             <!-- <textarea id="">hh</textarea> -->
         </div>

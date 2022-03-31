@@ -9,9 +9,7 @@
         <div class="feed-content">
             <h2 id="page-title">Home</h2>
             {% for post in posts %}
-            
-            {% include "wall/modules/post_module.html" with post=post%}
-            
+                {% include "wall/modules/post_module.html" with post=post%}
             {% endfor %}
         </div>
     </div>

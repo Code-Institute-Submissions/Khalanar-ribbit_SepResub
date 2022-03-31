@@ -8,9 +8,18 @@
         <div class="feed-content">
             <h2 id="page-title">r/{{ category.name }}</h2>
             <div></div>
-            {% for post in posts %}
-                {% include "wall/modules/post_module.html" with post=post%}  
-            {% endfor %}
+            {% if posts.count == 0 %}
+            <div class="card">
+                <div class="card-content white-text padding-bottom-small">
+                    <p>No posts here, be the first!</p>
+                    
+                </div>
+            </div>
+            {% else %}
+                {% for post in posts %}
+                    {% include "wall/modules/post_module.html" with post=post%}  
+                {% endfor %}
+            {% endif %}
         </div>
     </div>
     

@@ -6,9 +6,10 @@ admin.site.register(Comment)
 admin.site.register(Category)
 admin.site.register(Profile)
 
+
 @admin.register(Post)
 class PostAdmin(admin.ModelAdmin):
-    '''ds'''
+    '''Admin class to view posts'''
     prepopulated_fields = {'slug': ('title',)}
     list_filter = ('category', 'date_created')
     list_display = ('title', 'slug', 'category', 'date_created')

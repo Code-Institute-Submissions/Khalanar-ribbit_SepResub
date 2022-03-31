@@ -20,10 +20,20 @@
 
     <title>Document</title>
 </head>
-<body class="darker">
+<body class="dark">
     <nav>
         <div class="nav-wrapper grey darken-4">
-            <a href="{% url 'home' %}" class="brand-logo">ribbit</a>
+            <a href="{% url 'home' %}" class="brand-logo">
+                <div class="row">
+                    <div class="col p0">
+                        <img id="logo" src="{% static 'images/ribbit-img.jpeg' %}">
+                    </div>
+                    <div class="col p0">
+                        ribbit
+                    </div>
+                </div>
+                
+            </a>
             <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
             <ul id="nav-mobile" class="right hide-on-med-and-down">
@@ -34,19 +44,16 @@
                 <li><a href="{% url 'account_signup' %}">register</a></li>
             {% endif %} -->
             <li><a href="#">explore</a></li>
-            <li><a href="#">tokens</a></li>
-            <li><a href="#">account</a></li>
+            <!-- <li><a href="">tokens</a></li> -->
+            <li><a href="{% url 'edit_profile' %}">account</a></li>
           </ul>
         </div>
     </nav>
     <ul class="sidenav" id="mobile-demo">
         <li><a href="#">explore</a></li>
-        <li><a href="#">tokens</a></li>
-        <li><a href="#">account</a></li>
+        <!-- <li><a href="#">tokens</a></li> -->
+        <li><a href="{% url 'edit_profile' %}">account</a></li>
       </ul>
-    
-
-
 
     <section id="main">
         {% block content %}

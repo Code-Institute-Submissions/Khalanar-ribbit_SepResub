@@ -6,7 +6,7 @@ from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
 
 
 class Home(generic.ListView):
-    '''ds'''
+    '''Home view'''
     model = Post
     template_name = 'wall/index.html'
     paginate_by = 6
@@ -17,10 +17,11 @@ class Home(generic.ListView):
         context['categories'] = Category.objects.all()
         return context
 
+
 class PostView(View):
-    '''ds'''
+    '''Post view'''
     def get(self, request, slug, *args, **kwargs):
-        '''ds'''
+        '''get method to render view'''
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(post=post).order_by("date_created")
@@ -39,8 +40,9 @@ class PostView(View):
                 'comment_form': CommentForm()
             },
         )
+
     def post(self, request, slug, *args, **kwargs):
-        '''ds'''
+        '''get method to render view'''
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(post=post).order_by("date_created")
@@ -70,10 +72,11 @@ class PostView(View):
             },
         )
 
+
 class CategoryView(View):
-    '''ds'''
+    '''Category view'''
     def get(self, request, category, *args, **kwargs):
-        '''ds'''
+        '''get method to render view'''
         queryset = Category.objects.all()
         category = get_object_or_404(queryset, name=category)
         posts = Post.objects.filter(category=category)
@@ -89,19 +92,19 @@ class CategoryView(View):
 
 
 class NewPostView(View):
-    '''ds'''
+    '''New post view'''
     def get(self, request, *args, **kwargs):
-            '''ds'''
-            return render(
-                request,
-                'wall/new_post.html',
-                {
-                    'post_form': PostForm(),
-                },
-            )
+        '''get method to render view'''
+        return render(
+            request,
+            'wall/new_post.html',
+            {
+                'post_form': PostForm(),
+            },
+        )
     
     def post(self, request, *args, **kwargs):
-        '''ds'''
+        '''get method to render view'''
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user
@@ -117,38 +120,35 @@ class NewPostView(View):
         return redirect('category_view', category=category)
 
 
-
 class NewCategoryView(View):
-    '''ds'''
+    '''New Category view'''
     def get(self, request, *args, **kwargs):
-            '''ds'''
-            return render(
-                request,
-                'wall/new_category.html',
-                {
-                    'category_form': CategoryForm(),
-                },
-            )
+        '''get method to render view'''
+        return render(
+            request,
+            'wall/new_category.html',
+            {
+                'category_form': CategoryForm(),
+            },
+        )
     
     def post(self, request, *args, **kwargs):
-        '''ds'''
+        '''post method to render view'''
         category_form = CategoryForm(data=request.POST)
         if category_form.is_valid():
             category_form.instance.author = request.user
             category = category_form.save(commit=False)
- 
-
             category.save()
-            # return HttpResponseRedirect(reverse('post_view')
         else:
             category_form = CategoryForm()
 
         return redirect('category_view', category=category)
 
+
 class LikePost(View):
-    '''ds'''
+    '''Like post view'''
     def post(self, request, slug):
-        '''ds'''
+        '''get method to render view'''
         post = get_object_or_404(Post, slug=slug)
         
         if post.likes.filter(id=request.user.id).exists():
@@ -158,10 +158,11 @@ class LikePost(View):
         
         return redirect('home')
 
+
 class EditProfile(View):
-    '''ds'''
+    '''Edit Profile view'''
     def get(self, request, *args, **kwargs):
-        '''ds'''
+        '''get method to render view'''
         return render(
             request,
             'wall/edit_profile.html',
@@ -169,3 +170,10 @@ class EditProfile(View):
                 'profile_form': ProfileForm(),
             },
         )
+
+
+class ComingSoon(View):
+    '''Coming soon view'''
+    def get(self, request, feature, *args, **kwargs):
+        '''get method to render view'''
+        return render(request, 'wall/coming_soon.html', {'feature': feature})

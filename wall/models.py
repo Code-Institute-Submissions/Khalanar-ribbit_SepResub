@@ -4,11 +4,11 @@ from cloudinary.models import CloudinaryField
 
 
 class Category(models.Model):
-    '''ds'''
+    '''Category database model'''
     name = models.CharField(max_length=12, unique=True)
 
     class Meta:
-        '''ds'''
+        '''meta information for model'''
         verbose_name_plural = "categories"
 
     def __str__(self):
@@ -16,7 +16,7 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    '''Post model'''
+    '''Post database model'''
     title = models.CharField(max_length=100, unique=True)
     slug = models.SlugField(max_length=100, unique=True)
     content = models.TextField()
@@ -30,42 +30,54 @@ class Post(models.Model):
     likes = models.ManyToManyField(User, related_name='post_likes', blank=True)
 
     class Meta:
-        '''meta'''
+        '''meta information for model'''
         ordering = ['-date_created']
 
     def __str__(self):
-        '''ds'''
         return str(self.title)
-
-    def number_of_likes(self):
-        '''ds'''
-        return self.likes.count()
 
 
 class Comment(models.Model):
-    '''ds'''
-    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
-    author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="user_comments")
+    '''Comment database model'''
+    post = models.ForeignKey(
+        Post,
+        on_delete=models.CASCADE,
+        related_name="comments"
+    )
+    author = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="user_comments"
+    )
     body = models.TextField()
     date_created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        '''ds'''
+        '''meta information for model'''
         ordering = ['date_created']
     
     def __str__(self):
-        '''ds'''
         return f"Comment {self.body} by {self.author}"
 
 
 class Profile(models.Model):
-    '''ds'''
+    '''Profile database model'''
     user = models.OneToOneField(User, null=False, on_delete=models.CASCADE)
     name = models.CharField(max_length=12, unique=False)
     dark_mode = models.BooleanField()
-    profile_picture = CloudinaryField('profile_pic', default='profile_pic_placeholder')
-    favorite_categories = models.ManyToManyField(Category, related_name='favorite_categories', blank=True)
-    saved_posts = models.ManyToManyField(Post, related_name='favorite_categories', blank=True)
+    profile_picture = CloudinaryField(
+        'profile_pic',
+        default='profile_pic_placeholder'
+    )
+    favorite_categories = models.ManyToManyField(
+        Category, related_name='favorite_categories',
+        blank=True
+    )
+    saved_posts = models.ManyToManyField(
+        Post,
+        related_name='favorite_categories',
+        blank=True
+    )
 
     def __str__(self):
         return str(self.name)

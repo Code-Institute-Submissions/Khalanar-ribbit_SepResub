@@ -1,12 +1,12 @@
 <div class="card">
-    <div class="card-content white-text padding-bottom-less">
+    <div class="card-content white-text padding-bottom-small">
         <span class="module-title">Explore</span>
         <ul id="categories-list">
             
             {% for category in categories %}
             <li><a href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
             {% endfor %}
-            <li class="accent-bg"><a id="create_category-button" href="{% url 'new_category' %}">add new</a></li>
+            <li class="accent-bg"><a id="btn-create-category" href="{% url 'new_category' %}">add new</a></li>
         </ul>
     </div>
 </div>

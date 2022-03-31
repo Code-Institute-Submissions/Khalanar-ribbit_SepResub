@@ -1,6 +1,6 @@
 <form style="display:inline;" action="{% url 'post_like' post.slug %}" method="POST">
     {% csrf_token %}
-    <button type="submit" class="clear-btn floaty-anchor">
+    <button type="submit" class="btn-trans floaty-anchor">
         <i class="small material-icons">
             {% if user in post.likes.all %}
                 favorite
@@ -8,6 +8,6 @@
                 favorite_border
             {% endif %}
         </i>
-        <span class="counter">{{ post.likes.count }}</span>
+        <span class="secondary-text">{{ post.likes.count }}</span>
     </button>
 </form>

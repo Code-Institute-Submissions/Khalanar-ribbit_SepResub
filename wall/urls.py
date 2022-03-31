@@ -8,5 +8,10 @@ urlpatterns = [
     path('new_post', views.NewPostView.as_view(), name='new_post'),
     path('new_category', views.NewCategoryView.as_view(), name='new_category'),
     path('edit_profile', views.EditProfile.as_view(), name='edit_profile'),
+    path(
+        'coming_soon/<str:feature>',
+        views.ComingSoon.as_view(),
+        name='coming_soon'
+        ),
     path('like/<slug:slug>', views.LikePost.as_view(), name='post_like')
 ]
