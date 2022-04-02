@@ -3,17 +3,15 @@
 :root {
     --border-gray: #ffffff18;
     --transparent-gray: #1a1a1bcc;
-    /* --hover-line-color: #ffffff63; */
     --hover-line-color: #ffffff44;
-    --anchor-color: #00e1ff87;
-    --accent-color-primary: #00e1ff87;
+    --anchor-color: #00fff387;
+    --accent-color-primary: #00fdff87;
     --accent-color-secondary: #2bbbad;
     --font-color-darkmode-primary: #dbdbdbe7;
     --font-color-darkmode-secondary: #757575;
 }
 
 /* BASE STYLES AND OVERWRITES */
-
 body{
     color: var(--font-color-darkmode-primary);
     font-family: Roboto, sans-serif;
@@ -21,6 +19,10 @@ body{
 
 a{
     color: var(--anchor-color);
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 textarea{
@@ -69,7 +71,42 @@ input:-webkit-autofill{
     -webkit-text-fill-color: #d7dadc !important;
 }
 
+.alert{
+    color: orange;
+    text-align: center;
+    border: 1px solid orange;
+    background-color: black;
+    border-radius: 5px;
+    z-index: 1;
+    max-width: 200px;
+    margin: auto;
+}
+
+@keyframes slide-down {
+    0%   {top:-30px;}
+    7%  {top:20px;}
+    93%  {top:20px;}
+    100%  {top:-30px;}
+  }
+
+@keyframes fadeinandout{
+    0%  {opacity: 0%;}
+    7%  {opacity: 100%;}
+    93%  {opacity: 100%;}
+    100%  {opacity: 0%;}
+}
+
+#message-container{
+    position: absolute;
+    animation: slide-down 3.1s, fadeinandout 3.1s;
+    width:100%;
+}
+
 /* GENERAL USE CLASSES */
+
+.hidden{
+    display: none;
+}
 
 .centered{
     margin: 25px auto 0px auto;
@@ -149,6 +186,7 @@ input:-webkit-autofill{
 #logo{
     width: 40px;
     margin-top: 12px;
+    margin-left:10px;
 }
 
 #page-title{
@@ -160,6 +198,7 @@ input:-webkit-autofill{
 .side-content{
     min-width: 250px;
     padding: 12.5px 5px 0px 20px;
+    z-index:0;
 }
 
 .side-content card{

@@ -19,6 +19,8 @@
     </style>
 
     <title>Document</title>
+    <!-- <script src="{% static 'scripts/script.js' %}"></script> -->
+
 </head>
 <body class="dark">
     <nav>
@@ -26,7 +28,7 @@
             <a href="{% url 'home' %}" class="brand-logo">
                 <div class="row">
                     <div class="col p0">
-                        <img id="logo" src="{% static 'images/ribbit-img.jpeg' %}">
+                        <img id="logo" src="{% static 'images/ribbit-logo.png' %}">
                     </div>
                     <div class="col p0">
                         ribbit
@@ -43,12 +45,20 @@
                 <li><a href="{% url 'account_login' %}">log in</a></li>
                 <li><a href="{% url 'account_signup' %}">register</a></li>
             {% endif %} -->
-            <li><a href="#">explore</a></li>
-            <!-- <li><a href="">tokens</a></li> -->
+            <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
             <li><a href="{% url 'edit_profile' %}">account</a></li>
           </ul>
         </div>
     </nav>
+
+    <div id="message-container" class="">
+ 
+            {% for message in messages %}
+            <div class="alert {{ message.tags }} fade show ">{{message | safe}}</div>
+            {% endfor %}
+        
+    </div>
+
     <ul class="sidenav" id="mobile-demo">
         <li><a href="#">explore</a></li>
         <!-- <li><a href="#">tokens</a></li> -->
@@ -66,13 +76,6 @@
 
     <!-- materialisecss js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var navbar = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(navbar);
-            var select = document.querySelectorAll('select');
-            var instances = M.FormSelect.init(select);
-        });
-    </script>
+    <script src="{% static 'scripts/script.js' %}"></script>
 </body>
 </html>
