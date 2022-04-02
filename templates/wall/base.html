@@ -10,17 +10,11 @@
     <title>ribbit</title>
     <!-- materialisecss css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <!-- material icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <style>
-
-    </style>
 
     <title>Document</title>
-    <!-- <script src="{% static 'scripts/script.js' %}"></script> -->
 
 </head>
 <body class="dark">
@@ -35,36 +29,34 @@
                         ribbit
                     </div>
                 </div>
-                
             </a>
             <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-
             <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <!-- {% if user.is_authenticated %}
-                <li><a href="{% url 'account_logout' %}">log out</a></li>
-            {% else %}
-                <li><a href="{% url 'account_login' %}">log in</a></li>
-                <li><a href="{% url 'account_signup' %}">register</a></li>
-            {% endif %} -->
-            <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
-            <li><a href="{% url 'edit_profile' %}">account</a></li>
+
+                <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
+                <li><a href="{% url 'edit_profile' %}">settings</a></li>
           </ul>
         </div>
     </nav>
 
-    <div id="message-container" class="">
- 
+    <ul class="sidenav" id="mobile-demo">
+        {% if user.is_authenticated %}
+            <li><a href="{% url 'account_logout' %}">log out</a></li>
+        {% else %}
+            <li><a href="{% url 'account_login' %}">log in</a></li>
+            <li><a href="{% url 'account_signup' %}">register</a></li>
+        {% endif %}
+        <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
+        <li><a href="{% url 'edit_profile' %}">settings</a></li>
+    </ul>
+
+    <div id="message-container">
             {% for message in messages %}
             <div class="alert {{ message.tags }} fade show ">{{message | safe}}</div>
             {% endfor %}
-        
     </div>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="#">explore</a></li>
-        <!-- <li><a href="#">tokens</a></li> -->
-        <li><a href="{% url 'edit_profile' %}">account</a></li>
-      </ul>
+  
 
     <section id="main">
         {% block content %}

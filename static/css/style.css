@@ -102,6 +102,14 @@ input:-webkit-autofill{
     width:100%;
 }
 
+.sidenav{
+    background-color: black;
+    
+}
+.sidenav li>a{
+    color: var(--font-color-darkmode-primary);git 
+}
+
 /* GENERAL USE CLASSES */
 
 .hidden{
