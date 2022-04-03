@@ -47,8 +47,14 @@ class ProfileForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(ProfileForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
+        self.fields['name'].initial = ''
+        self.fields['name'].required = False
+
+        self.fields['profile_picture'].label = 'Upload new profile picture'
+        self.fields['profile_picture'].required = False
 
     class Meta:
         '''form meta info'''
         model = Profile
         fields = ('name', 'profile_picture', )
+

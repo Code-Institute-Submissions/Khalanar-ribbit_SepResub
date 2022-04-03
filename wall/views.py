@@ -175,17 +175,26 @@ class EditProfile(View):
                 'profile_form': ProfileForm(),
             },
         )
-    
+
     def post(self, request, *args, **kwargs):
         '''post form data to edit user profile'''
         profile_form = ProfileForm(request.POST, files=request.FILES)
         if profile_form.is_valid():
             profile = request.user.profile
-            profile.name = profile_form.cleaned_data['name']
-            profile.profile_picture = request.FILES.get('profile_picture')  
-            profile.save()
 
-            messages.success(request, 'Profile successfully updated')
+            if profile_form.cleaned_data['name'] != '':
+                profile.name = profile_form.cleaned_data['name']
+                messages.success(request, f'Name changed to {profile_form.cleaned_data["name"]}')
+
+            if request.FILES.get('profile_picture') is not None:
+                profile.profile_picture = request.FILES.get('profile_picture')
+                messages.success(request, 'Profile successfully updated')
+
+            if request.FILES.get('profile_picture') is None and profile_form.cleaned_data['name'] == '':
+                messages.success(request, 'No changes made to your profile')
+            else:
+                profile.save()
+
             return redirect('home')
 
 
