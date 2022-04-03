@@ -10,8 +10,8 @@ class Home(generic.ListView):
     '''Home view'''
     model = Post
     template_name = 'wall/index.html'
-    paginate_by = 6
-    
+    paginate_by = 25
+
     def get_context_data(self, **kwargs):
         context = super(Home, self).get_context_data(**kwargs)
         context['posts'] = Post.objects.all()
@@ -59,7 +59,7 @@ class PostView(View):
             comment.save()
             messages.success(request, 'Comment successfully added!')
             return HttpResponseRedirect(reverse('post_view', args=[slug]))
-            
+
         else:
             comment_form = CommentForm()
 
@@ -105,7 +105,7 @@ class NewPostView(View):
                 'post_form': PostForm(),
             },
         )
-    
+
     def post(self, request, *args, **kwargs):
         '''post method to render view'''
         post_form = PostForm(data=request.POST)
@@ -135,7 +135,7 @@ class NewCategoryView(View):
                 'category_form': CategoryForm(),
             },
         )
-    
+
     def post(self, request, *args, **kwargs):
         '''post method to render view'''
         category_form = CategoryForm(data=request.POST)
@@ -145,7 +145,7 @@ class NewCategoryView(View):
             category.save()
         else:
             category_form = CategoryForm()
-        
+
         messages.success(request, 'New category created!')
         return redirect('category_view', category=category)
 
@@ -155,12 +155,11 @@ class LikePost(View):
     def post(self, request, slug):
         '''get method to render view'''
         post = get_object_or_404(Post, slug=slug)
-        
+
         if post.likes.filter(id=request.user.id).exists():
             post.likes.remove(request.user)
         else:
             post.likes.add(request.user)
-        
 
         return redirect('home')
 
