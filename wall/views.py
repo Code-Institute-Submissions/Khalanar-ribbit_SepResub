@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
@@ -42,7 +43,7 @@ class PostView(View):
         )
 
     def post(self, request, slug, *args, **kwargs):
-        '''get method to render view'''
+        '''post method to add comment'''
         queryset = Post.objects.all()
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(post=post).order_by("date_created")
@@ -56,7 +57,9 @@ class PostView(View):
             comment = comment_form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.success(request, 'Comment successfully added!')
             return HttpResponseRedirect(reverse('post_view', args=[slug]))
+            
         else:
             comment_form = CommentForm()
 
@@ -104,7 +107,7 @@ class NewPostView(View):
         )
     
     def post(self, request, *args, **kwargs):
-        '''get method to render view'''
+        '''post method to render view'''
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user
@@ -112,9 +115,10 @@ class NewPostView(View):
             post.slug = post_form.cleaned_data['title'].replace(" ", "-").lower()
             category = post_form.cleaned_data['category']
 
+            messages.success(request, 'Post created!')
             post.save()
-            # return HttpResponseRedirect(reverse('post_view')
         else:
+            messages.error(request, 'Invalid form data')
             post_form = PostForm()
 
         return redirect('category_view', category=category)
@@ -141,7 +145,8 @@ class NewCategoryView(View):
             category.save()
         else:
             category_form = CategoryForm()
-
+        
+        messages.success(request, 'New category created!')
         return redirect('category_view', category=category)
 
 
@@ -156,6 +161,7 @@ class LikePost(View):
         else:
             post.likes.add(request.user)
         
+
         return redirect('home')
 
 
@@ -170,6 +176,18 @@ class EditProfile(View):
                 'profile_form': ProfileForm(),
             },
         )
+    
+    def post(self, request, *args, **kwargs):
+        '''post form data to edit user profile'''
+        profile_form = ProfileForm(request.POST, files=request.FILES)
+        if profile_form.is_valid():
+            profile = request.user.profile
+            profile.name = profile_form.cleaned_data['name']
+            profile.profile_picture = request.FILES.get('profile_picture')  
+            profile.save()
+
+            messages.success(request, 'Profile successfully updated')
+            return redirect('home')
 
 
 class ComingSoon(View):

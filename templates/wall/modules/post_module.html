@@ -12,7 +12,7 @@
         
         <span class="card-title">{{ post.title }}</span>
         <div class="mask-content">
-            <a href="/p/asd/" class="full-anchor"></a>
+            <a href="{% url 'post_view' post.slug %}" class="full-anchor"></a>
             <p>{{ post.content }}</p> 
         </div>
         

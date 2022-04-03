@@ -10,7 +10,7 @@
             
 
             <div class="card-content white-text small-top-padding">
-                <form method="post" style="">
+                <form method="post" style="" enctype="multipart/form-data">
                     {{ profile_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn dark-btn btn-form-br">Send</button>
