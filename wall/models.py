@@ -81,3 +81,11 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.name)
+   
+    @classmethod
+    def create(cls, user):
+        '''method to create user profiles if one does not exist'''
+        profile = cls(user=user, name='', dark_mode=False)
+        
+        return profile
+        

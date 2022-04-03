@@ -1,8 +1,9 @@
 from django.contrib import messages
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
-from .models import Post, Category
+from .models import Post, Category, Profile
 from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
 
 
@@ -164,7 +165,7 @@ class LikePost(View):
         return redirect('home')
 
 
-class EditProfile(View):
+class EditProfile(LoginRequiredMixin, View):
     '''Edit Profile view'''
     def get(self, request, *args, **kwargs):
         '''get method to render view'''
@@ -180,7 +181,12 @@ class EditProfile(View):
         '''post form data to edit user profile'''
         profile_form = ProfileForm(request.POST, files=request.FILES)
         if profile_form.is_valid():
-            profile = request.user.profile
+            if Profile.objects.filter(user=request.user).exists():
+                print('USER')
+                profile = request.user.profile
+            else:
+                print('NO USER')
+                profile = Profile.create(request.user)     
 
             if profile_form.cleaned_data['name'] != '':
                 profile.name = profile_form.cleaned_data['name']
