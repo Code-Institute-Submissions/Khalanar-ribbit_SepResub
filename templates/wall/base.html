@@ -20,34 +20,34 @@
 <body class="dark">
     <nav>
         <div class="nav-wrapper grey darken-4">
-            <a href="{% url 'home' %}" class="brand-logo">
+            <a alt="go back to home" href="{% url 'home' %}" class="brand-logo">
                 <div class="row">
                     <div class="col p0">
-                        <img id="logo" src="{% static 'images/ribbit-logo.png' %}">
+                        <img id="logo" alt="ribbit logo" src="{% static 'images/ribbit-logo.png' %}">
                     </div>
                     <div class="col p0">
                         ribbit
                     </div>
                 </div>
             </a>
-            <a href="/" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+            <a href="/" data-target="mobile-demo" class="sidenav-trigger" alt="opens menu" ><i class="material-icons">menu</i></a>
             <ul id="nav-mobile" class="right hide-on-med-and-down">
 
-                <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
-                <li><a href="{% url 'edit_profile' %}">settings</a></li>
+                <li><a href="{% url 'coming_soon' 'Explore' %}" alt="go to explore page">explore</a></li>
+                <li><a href="{% url 'edit_profile' %}" alt="go to settings page">settings</a></li>
           </ul>
         </div>
     </nav>
 
     <ul class="sidenav" id="mobile-demo">
         {% if user.is_authenticated %}
-            <li><a href="{% url 'account_logout' %}">log out</a></li>
+            <li><a href="{% url 'account_logout' %}" alt="user log out">log out</a></li>
         {% else %}
-            <li><a href="{% url 'account_login' %}">log in</a></li>
-            <li><a href="{% url 'account_signup' %}">register</a></li>
+            <li><a href="{% url 'account_login' %}" alt="user log in">log in</a></li>
+            <li><a href="{% url 'account_signup' %}" alt="create new account">register</a></li>
         {% endif %}
-        <li><a href="{% url 'coming_soon' 'Explore' %}">explore</a></li>
-        <li><a href="{% url 'edit_profile' %}">settings</a></li>
+        <li><a href="{% url 'coming_soon' 'Explore' %}" alt="go to explore page">explore</a></li>
+        <li><a href="{% url 'edit_profile' %}"  alt="go to settings page">settings</a></li>
     </ul>
 
     <div id="message-container">

@@ -8,6 +8,8 @@ You can safely delete this README.md file, or change it for your own project. Pl
 
 ## Gitpod Reminders
 
+![aass](media/readme/amiresponsive.png)
+
 To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
 
 `python3 -m http.server`
