@@ -34,6 +34,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["ribbit-0.herokuapp.com", "localhost"]
 
+X_FRAME_OPTIONS = 'ALLOW-FROM http://ami.responsivedesign.is'
 
 # Application definition
 

@@ -31,8 +31,8 @@ class TestViews(TestCase):
             'post': post,
             'category': category,
             })
-        self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed('wall/new_post.html')
+        self.assertRedirects(response, '/r/default')
+        # self.assertTemplateUsed('wall/new_post.html')
 
     def test_post_view(self):
         '''test if posts can be viewed'''

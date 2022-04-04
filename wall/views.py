@@ -109,11 +109,13 @@ class NewPostView(View):
 
     def post(self, request, *args, **kwargs):
         '''post method to render view'''
+        category = Category.objects.create(name='default')
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user
             post = post_form.save(commit=False)
             post.slug = post_form.cleaned_data['title'].replace(" ", "-").lower()
+           
             category = post_form.cleaned_data['category']
 
             messages.success(request, 'Post created!')
