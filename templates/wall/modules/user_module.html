@@ -6,13 +6,11 @@
         </div>
         <span id="username" class="card-title">u/{{user.username}}</span>
         <ul id="account-widget-list" class="secondary-text">
-           
             <li>{{user.profile.name}}</li>
             <li>{{user.email}}</li>
             <li><a href="{% url 'coming_soon' 'Saved posts' %}">saved posts</a></li>
             <li><a href="{% url 'edit_profile' %}">settings</a></li>
-            <li><a href="{% url 'account_logout' %}">log out</a></li>
-            
+            <li><a href="{% url 'account_logout' %}">log out</a></li>      
         </ul>
         <a class="btn btn-accent centered" href="{% url 'new_post' %}">create post</a>
         {% else %}

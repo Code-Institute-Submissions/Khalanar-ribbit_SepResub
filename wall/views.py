@@ -109,7 +109,7 @@ class NewPostView(View):
 
     def post(self, request, *args, **kwargs):
         '''post method to render view'''
-        category = Category.objects.create(name='default')
+        # category = Category.objects.create(name='default')
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user

@@ -1,110 +1,294 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# ![](static/images/ribbit-favicon.png)ribbit
 
-Welcome Khalanar,
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+Ribbit is a gathering place. A forum where users can write about their favourite topics and their knowledge with the world. Users can create categories, posts and like and comment on other people's posts. Ribbit is a space to share and respect among the community is expected, there is a 0 tolerance to hatred policy.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
-
-## Gitpod Reminders
-
-![aass](media/readme/amiresponsive.png)
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 
 ---
 
-Happy coding!
+
+## Contents
+
+- [User Experience](#user-experience)
+- [Design](#design)
+- [Database Design](#database-design)
+- [Technologies Used](#technologies-used)
+- [Deployment](#deployment)
+- [Testing](#testing)
+- [Credits](#credits)
+
+---
+
+## User Experience
+
+### Initial Discussion
+
+* I wanted to create a community portal linked to a database to allows users to register, log in, create a profile, create categories, posts and like and comment on other people's posts.
+* As a barebones version of a platform like Reddit, I named this tool Ribbit and had a frog for its logo.
+* I wanted admins to have special permissions through the admin portal like deleting any database entry for posts, likes, comments, categories, users and profiles
+
+### User Stories
+
+| **User Story Id** | **As a / an...** | **I should be able to...** | **So that I can...** |
+| --- | --- | --- | --- |
+||| **VIEWS AND NAVIGATION** ||
+| G1 | User | View homepage with all posts | to find posts that I may like to read |
+| G1 | User | Filter posts by categories | have quicker access to the information I value most |
+| G1 | User | View a list of categories | understand what topics exist |
+| G1 | User | Open a post | view the whole contents and any related comments |
+| G1 | User | Filter posts by categories | have quicker access to the information I value most |
+||| **USER ACCOUNTS** ||
+| R1 | User | Register to Ribbit | have access to more features |
+| R1 | Registered User | Access account settings | change my username or profile picture |
+||| **POSTING AND EXPLORING** ||
+| P1 | Registered User | Create new categories | that match my interests |
+| P1 | Registered User | Create new posts | so I can share my knowledge with the internet |
+| P1 | Registered User | Comment on existing posts | show my opinion on other user's posts |
+| P1 | Registered User | Like other posts | to show the post author my appreciation |
+||| **ADMIN** ||
+| A1 | Admin | Modify or delete any database entry | keep an organised environment |
+
+### Project Goals
+
+- The mail purpose of this website is for users to be able to chat about their favourite topics in a way that's organic and feels natural to them.
+- This project also demonstrates my skillset, build a front-end system that's clean and usable a back-end that's scalable and modular, and a database management system with full CRUD (Create, Read, Update and Delete) functionality, using a PostgreSQL and Cloudinary.
+
+---
+
+## Design
+
+### Wireframes
+
+
+### Color Scheme
+
+- The main colors used in this site are shades of grey for physical elements, teals to highlight certain interactable elements and orange for the logo.
+
+
+### Fonts
+
+- Main font is Roboto and sans-serif fonts in case of fallback. Sans-serif font are easier to read for dyslexic and partially visually impaired users.
+- As the standard HTML font size is 16px, I kept it at that, ensuring to not have any fonts smaller than that, to aid visually impaired users.
+- Also, the recommended smallest font size for accessible websites is 12px, so by keeping all font sizes at the HTML standard of 16px or above, I ensured to be fully compliant with the [Penn State University Accessibility and Usability Guidelines](https://accessibility.psu.edu/fontsizehtml/).
+- Font sizes are also able to be zoomed to 200% without losing contrast or functionality, to comply with the [WCAG Guidelines on fonts](https://www.w3.org/TR/UNDERSTANDING-WCAG20/visual-audio-contrast-scale.html).
+
+
+### Images
+
+- [Logo](static/images/ribbit-logo.png) by Khalanar
+
+### Wireframes
+
+* [Wireframes for desktop, mobile, and tablet for this project](static/docs/wireframes.pdf).
+* [Database schema for this project](static/docs/database.pdf).
+
+### Features
+
+#### Register
+
+- This feature allows the user to register as a user and create an account (user profile). 
+- In this version, user profiles are used to set the name and profile picture of the account
+
+#### Login / Logout
+- Allows users to log in and out of the game. Certain actions are locked behind accounts:
+  - Edit user profile
+  - Create categories
+  - Create posts
+  - Leave comments on posts
+  - like posts 
+
+#### Post
+- Users can create posts and tie them up to a category to keep them organised.
+- In this version text is supported as the media
+- An excerpt of a post can be viewed in the homepage and in category pages
+- Users can view the full post under the post screen
+
+#### Comment Posts
+- Users can leave comments on posts.
+- In this version text is supported as the media
+
+#### Like Posts
+- Users can like other user posts
+
+#### Create Categories
+- Users can create categories to keep posts organised
+- Users can filter all posts by their categories
+
+
+### Future Versions
+
+- Allow images in posts
+- Implement Light mode, selectable from the user profile settings
+- Allow users to reset their password from the user profile settings
+- Create page for users at /u/username with a list of their posts
+- Allow users to follow other users
+- Allow users to favourite other users' posts
+- Allow users to follow categories
+- Allow users to like comments 
+
+### Defensive Design
+
+- Form validation
+  - This has been used on every form input on the site to ensure the correct data is added
+  - If incorrect data is added, red warning text appears, to instruct the user on how to fix the error
+- Messages when an action is completed
+    - User registration
+    - User login
+    - User logout
+    - User name edited under settings
+    - User profile picture edited under settings
+    - Post successfully created
+    - Comment successfully created
+- Default image
+  - A default profile image is displayed if none is uploaded
+- Custom error pages
+  - A custom 404 error page will show if the user attempts to visit a page that doesn't exist
+  - A custom 500 error page will show if an internal server error occurs
+
+---
+
+## Database Design
+
+This database uses a SQL database through PostgreSQL. 
+
+### Models
+#### Category
+|Field Name | Field Type |
+| --- | --- |
+| name | CharField, max_length 12, unique |
+
+#### Post
+|Field Name | Field Type |
+| --- | --- |
+| title | CharField, max_length 100, unique |
+| slug | SlugField, gets lowercase title and replaces spaces with dashes |
+| content  models.TextField() |
+| featured_image | CloudinaryField Image |
+| excerpt | TextField(blank=True) |
+| category | Category ForeignKey |
+| author | User ForeignKey |
+| date_created | DateTimeField |
+| date_modified | DateTimeField |
+| likes | User ForeignKey ManyToManyField |
+
+### Comment
+|Field Name | Field Type |
+| --- | --- |
+| post | Post ForeignKey |
+| author | User ForeignKey |
+| body | TextField |
+
+### Profile
+|Field Name | Field Type |
+| --- | --- |
+| user | User ForeignKey OneToOneField |
+| name | CharField |
+| dark_mode | BooleanField |
+| profile_picture | 
+| favorite_categories | Category ForeignKey ManyToMany |
+| saved_posts | Post ForeignKey ManyToMany |
+
+---
+
+## Technologies Used
+- HTML5
+- CSS
+- Materialize CSS
+- JavaScript
+- Python
+- Django
+- SQL
+
+### Workspace and tools
+
+[GitPod](https://gitpod.io/) was used as a virtual IDE workspace to build this site.
+[Git](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to add and commit to Git and push to GitHub.
+[GitHub](https://github.com/) is used to store the code for this project after being pushed from Git.
+[Affinity Designer](https://affinity.serif.com/en-gb/designer/) was used to create the wireframes during the design process.
+[Am I Responsive](http://ami.responsivedesign.is/#) was used to check the responsive design of the site, and to create the final site image.
+[Responsinator](http://www.responsinator.com/) was used to help improve the responsive design on a variety of devices.
+[Google Fonts](https://fonts.google.com/) was used to select all the fonts on the site.
+
+
+### Installed Packages*
+
+| Name | Use case |
+|------|---------|
+| Django | Framework |
+| django-allauth | Authentication |
+| gunicorn | WSGI HTTP Server |
+| django-crispy-forms | Front End Form Rendering |
+| crispy-forms-materialize | Module to add materializecss styles to crispy forms |
+| dj-database-url | Database Configuration |
+| psycopg2 | PostgreSQL DB manager |
+| coverage | Test Coverage |
+| cloudinary | Library to manage cloudinary files and types |
+
+*only installed packages not including dependencies
+
+### Hosting
+
+#### Heroku
+
+[Heroku](https://www.heroku.com) was used to deploy the live site.
+
+#### Cloudinary
+
+[Cloudinary](https://cloudinary.com) was used to host this project's media and static files.
+
+---
+
+## Deployment
+
+Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
+
+---
+
+## Testing
+
+### Manual Testing
+
+| What | Where | Test result |
+|----|-----|-----|
+| HTML | [Validator W3C Markup validation service](https://validator.w3.org/) | 0 errors - warnings found as linter cannot process templating |
+| CSS | [Jigsaw W3C CSS validation service](https://jigsaw.w3.org/css-validator/validator) | 0 errors - 0 warnings  |
+| JS | [JSHint](https://jshint.com/) | Ignored warning about materializecss variables and arrow functions |
+| Python | Automatic Testing | 80% total coverage. Manually tested data validation on inputs |
+
+### Data validation
+Manually tested all input fields and urls
+
+### Responsiveness
+- Responsiveness was checked through[Am I Responsive](http://ami.responsivedesign.is/) 
+![responsive screenshot](media/readme/amiresponsive.png)
+
+### Accessibility 
+- Accessibility report by [Google Lighthouse](https://developers.google.com/web/tools/lighthouse)
+![](media/readme/lighthouse.png)
+
+
+### Known issues
+
+- None found, if any errors are found, please contact me via my GitHub ([Khalanar](https://github.com/khalanar/)) to get them fixed.
+
+---
+
+## Credits
+
+### Code
+* [Materialize CSS](https://materializecss.com): Library of icons used for social media and download links.
+* [Django Documentation](https://docs.djangoproject.com/en/3.2/) has been used to ensure correct syntax usage throughout the code.
+
+### Content
+
+* All content created by [Khalanar](https://github.com/klahanar).
+
+### Media
+
+* All media on this site is owned by [Khalanar](https://github.com/klahanar)
+
+### Acknowledgements
+
+* My mentor, Antonio Rodriguez, at [Code Institute](https://codeinstitute.net/), for continuous helpful feedback and support.
+* The team at [Code Institute](https://codeinstitute.net/), for teaching me the necessary skills to create this site.
