@@ -80,8 +80,7 @@ Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 
 ### Wireframes
 
-* [Wireframes for desktop, mobile, and tablet for this project](static/docs/wireframes.pdf).
-* [Database schema for this project](static/docs/database.pdf).
+- [Wireframes for desktop, mobile, and tablet for this project](static/docs/wireframes.pdf).
 
 ### Features
 
