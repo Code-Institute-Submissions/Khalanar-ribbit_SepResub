@@ -66,10 +66,3 @@ class TestViews(TestCase):
         response = self.client.get('/edit_profile', follow=True)
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed('wall/edit_profile.html')
-    
-    # def test_likes(self):
-    #     '''test if posts can be liked'''
-    #     category = Category.objects.create(name='python')
-    #     user = User.objects.create(username='admin')
-    #     post = Post.objects.create(content='abc', slug='abc', category=category, author=user)
-    #     response = self.client.post('/like/abc',)

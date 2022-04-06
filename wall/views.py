@@ -211,3 +211,18 @@ class ComingSoon(View):
     def get(self, request, feature, *args, **kwargs):
         '''get method to render view'''
         return render(request, 'wall/coming_soon.html', {'feature': feature})
+
+def handler404(request, *args, **argv):
+    '''handle 404 status pages'''
+    response = render_to_response('404.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 404
+    return response
+
+
+def handler500(request, *args, **argv):
+    '''handle 500 status pages'''
+    response = render_to_response('500.html', {},
+                                  context_instance=RequestContext(request))
+    response.status_code = 500
+    return response

@@ -7,5 +7,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 setTimeout( () => {
     document.getElementById('message-container').innerHTML = "";
-}, 3000 )
-
+}, 3000 );

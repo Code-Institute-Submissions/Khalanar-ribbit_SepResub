@@ -237,7 +237,7 @@ input:-webkit-autofill{
 }
 
 .btn-create-category{
-    background-color: var (--accent-color-secondary);
+    background-color: var(--accent-color-secondary);
 }
 
 .btn-form-br{

@@ -55,7 +55,7 @@ class Comment(models.Model):
     class Meta:
         '''meta information for model'''
         ordering = ['date_created']
-    
+
     def __str__(self):
         return f"Comment {self.body} by {self.author}"
 
@@ -67,7 +67,7 @@ class Profile(models.Model):
     dark_mode = models.BooleanField()
     profile_picture = CloudinaryField(
         'profile_pic',
-        default='profile_pic_placeholder'
+        default='static/images/ribbit-logo.png'
     )
     favorite_categories = models.ManyToManyField(
         Category, related_name='favorite_categories',
@@ -81,11 +81,9 @@ class Profile(models.Model):
 
     def __str__(self):
         return str(self.name)
-   
+
     @classmethod
     def create(cls, user):
         '''method to create user profiles if one does not exist'''
         profile = cls(user=user, name='', dark_mode=False)
-        
         return profile
-        
