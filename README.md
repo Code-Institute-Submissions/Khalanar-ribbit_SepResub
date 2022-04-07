@@ -59,7 +59,7 @@ Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 ## Design
 
 ### Wireframes
-
+See the [wireframes pdf file](media/readme/wireframes.pdf)
 
 ### Color Scheme
 
