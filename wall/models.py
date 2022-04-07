@@ -67,7 +67,7 @@ class Profile(models.Model):
     dark_mode = models.BooleanField()
     profile_picture = CloudinaryField(
         'profile_pic',
-        default='static/images/ribbit-logo.png'
+        default=''
     )
     favorite_categories = models.ManyToManyField(
         Category, related_name='favorite_categories',

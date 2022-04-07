@@ -2,7 +2,10 @@
     <div class="card-content padding-bottom-small">
         {% if user.is_authenticated %}
         <div id="profile-pic-container">
+            {% if user.profile %}
             <img id="profile-pic" src="{{ request.user.profile.profile_picture.url }}">
+            {% endif %}
+            
         </div>
         <span id="username" class="card-title">u/{{user.username}}</span>
         <ul id="account-widget-list" class="secondary-text">

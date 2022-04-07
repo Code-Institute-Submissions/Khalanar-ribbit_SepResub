@@ -28,6 +28,7 @@ class PostView(View):
         post = get_object_or_404(queryset, slug=slug)
         comments = post.comments.filter(post=post).order_by("date_created")
         liked = False
+
         if post.likes.filter(id=self.request.user.id).exists():
             liked = True
 
