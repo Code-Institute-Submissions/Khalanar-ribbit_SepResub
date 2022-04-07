@@ -1,7 +1,7 @@
 # ![](static/images/ribbit-favicon.png)ribbit
 
 
-Ribbit is a gathering place. A forum where users can write about their favourite topics and their knowledge with the world. Users can create categories, posts and like and comment on other people's posts. Ribbit is a space to share and respect among the community is expected, there is a 0 tolerance to hatred policy.
+Welcome to Ribbit. This is a gathering place. A forum where users can write about their favourite topics and their knowledge with the world. Users can create categories, posts and like and comment on other people's posts. Ribbit is a space to share and respect among the community is expected, there is a 0 tolerance to hatred policy.
 
 Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 
