@@ -148,8 +148,8 @@ class NewCategoryView(View):
         if category_form.is_valid():
             category_form.instance.author = request.user
             category = category_form.save(commit=False)
-            category = post_form.cleaned_data['title'].replace(" ", "_").lower()
-            category = re.sub(r'\W+', '', post.slug)
+            category.name = category.name.replace(" ", "_").lower()
+            category.name = re.sub(r'\W+', '', category.name)
             category.save()
         else:
             category_form = CategoryForm()
