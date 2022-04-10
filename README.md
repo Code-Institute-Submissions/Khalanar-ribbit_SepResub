@@ -184,7 +184,7 @@ This database uses a SQL database through PostgreSQL.
 | user | User ForeignKey OneToOneField |
 | name | CharField |
 | dark_mode | BooleanField |
-| profile_picture | 
+| profile_picture | CloudinaryField Image |
 | favorite_categories | Category ForeignKey ManyToMany |
 | saved_posts | Post ForeignKey ManyToMany |
 
@@ -201,13 +201,13 @@ This database uses a SQL database through PostgreSQL.
 
 ### Workspace and tools
 
-[GitPod](https://gitpod.io/) was used as a virtual IDE workspace to build this site.
-[Git](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to add and commit to Git and push to GitHub.
-[GitHub](https://github.com/) is used to store the code for this project after being pushed from Git.
-[Affinity Designer](https://affinity.serif.com/en-gb/designer/) was used to create the wireframes during the design process.
-[Am I Responsive](http://ami.responsivedesign.is/#) was used to check the responsive design of the site, and to create the final site image.
-[Responsinator](http://www.responsinator.com/) was used to help improve the responsive design on a variety of devices.
-[Google Fonts](https://fonts.google.com/) was used to select all the fonts on the site.
+- [GitPod](https://gitpod.io/) was used as a virtual IDE workspace to build this site.
+- [Git](https://git-scm.com/) was used for version control by utilising the Gitpod terminal to add and commit to Git and push to GitHub.
+- [GitHub](https://github.com/) is used to store the code for this project after being pushed from Git.
+- [Affinity Designer](https://affinity.serif.com/en-gb/designer/) was used to create the wireframes during the design process.
+- [Am I Responsive](http://ami.responsivedesign.is/#) was used to check the responsive design of the site, and to create the final site image.
+- [Responsinator](http://www.responsinator.com/) was used to help improve the responsive design on a variety of devices.
+- [Google Fonts](https://fonts.google.com/) was used to select all the fonts on the site.
 
 
 ### Installed Packages*
