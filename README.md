@@ -268,7 +268,6 @@ Manually tested all input fields and urls
 
 
 ### Known issues
-
 - None found, if any errors are found, please contact me via my GitHub ([Khalanar](https://github.com/khalanar/)) to get them fixed.
 
 ---
