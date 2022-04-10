@@ -116,7 +116,7 @@ class NewPostView(View):
         if post_form.is_valid():
             post_form.instance.author = request.user
             post = post_form.save(commit=False)
-            post.slug = post_form.cleaned_data['title'].replace(" ", "-").lower()
+            post.slug = post_form.cleaned_data['title'].replace(" ", "_").lower()
             post.slug = re.sub(r'\W+', '', post.slug)
            
             category = post_form.cleaned_data['category']
@@ -148,7 +148,7 @@ class NewCategoryView(View):
         if category_form.is_valid():
             category_form.instance.author = request.user
             category = category_form.save(commit=False)
-            category = post_form.cleaned_data['title'].replace(" ", "-").lower()
+            category = post_form.cleaned_data['title'].replace(" ", "_").lower()
             category = re.sub(r'\W+', '', post.slug)
             category.save()
         else:
