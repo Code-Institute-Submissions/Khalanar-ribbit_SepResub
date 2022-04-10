@@ -5,6 +5,8 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Category, Profile
 from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
+import re
+
 
 
 class Home(generic.ListView):
@@ -110,12 +112,12 @@ class NewPostView(View):
 
     def post(self, request, *args, **kwargs):
         '''post method to render view'''
-        # category = Category.objects.create(name='default')
         post_form = PostForm(data=request.POST)
         if post_form.is_valid():
             post_form.instance.author = request.user
             post = post_form.save(commit=False)
             post.slug = post_form.cleaned_data['title'].replace(" ", "-").lower()
+            post.slug = re.sub(r'\W+', '', post.slug)
            
             category = post_form.cleaned_data['category']
 
@@ -146,6 +148,8 @@ class NewCategoryView(View):
         if category_form.is_valid():
             category_form.instance.author = request.user
             category = category_form.save(commit=False)
+            category = post_form.cleaned_data['title'].replace(" ", "-").lower()
+            category = re.sub(r'\W+', '', post.slug)
             category.save()
         else:
             category_form = CategoryForm()
