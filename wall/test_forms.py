@@ -21,14 +21,13 @@ class TestPostForm(TestCase):
     '''Test class for PostForm'''
     def test_post_has_body(self):
         '''test if post body is required'''
-        form = PostForm({'body': '',})
+        form = PostForm({'body': '', })
         self.assertFalse(form.is_valid())
-    
+
     def test_post_has_category(self):
         '''test if post category is required'''
         form = PostForm({'category': '', })
         self.assertFalse(form.is_valid())
-
 
 
 class TestCategoryForm(TestCase):
@@ -38,13 +37,13 @@ class TestCategoryForm(TestCase):
         form = CategoryForm({'name': ''})
         self.assertFalse(form.is_valid())
 
+
 class TestProfileForm(TestCase):
-    '''Test class for user profile edits
-       both fields can be empty, no need to test required
-    '''
+    '''Test class for user profile edits both
+        fields can be empty, no need to test required
+        '''
     def test_profile_fields_are_explicit_in_meta(self):
         '''Test if only profile fields explicited through Meta
         are available in the form'''
         form = ProfileForm()
         self.assertEqual(form.Meta.fields, ('name', 'profile_picture'))
-    
