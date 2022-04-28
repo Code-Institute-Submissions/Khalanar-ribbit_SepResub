@@ -48,11 +48,11 @@ This site was deployed to Heroku by following these steps:
 
 1. Create requierements file with all python dependencies for the Heroku server:
     * `pip3 freeze --local > requirements.txt`
-    * `echo web: python run.py > Procfile` - Ensure there is no blank line after the contents of this file.
-2. Push these changes to your repository.
-3. Login or sign up to [Heroku](https://www.heroku.com).
-4. Select '**Create New App**' in the top right of your dashboard.
-5. Choose a unique app name, and select the region closest to you, before clicking '**Create App**'.
+    * `echo web: python run.py > Procfile` - Ensure there is no blank line at the end of the file
+2. Push changes to the repository
+3. Sign into [Heroku](https://www.heroku.com)
+4. Select '**Create New App**' in the top right of your dashboard
+5. Choose a unique app name, and select the region closest to you, before clicking '**Create App**'
 6. Go to the '**Deploy**' tab, find '**Deployment Method**', and select '**GitHub**'.
 7. Search to find your GitHub repository, and click '**Connect**'.
 8. Go to the '**Settings**' tab, find '**Config Vars**', and click '**Reveal Config Vars**'.
