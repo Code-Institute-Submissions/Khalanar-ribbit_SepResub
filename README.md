@@ -255,20 +255,20 @@ Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
 | JS | [JSHint](https://jshint.com/) | Ignored warning about materializecss variables and arrow functions |
 | Python | Automatic Testing | 80% total coverage. Manually tested data validation on inputs |
 |  | ribbit/settings.py | Ignored 5 long-line lint errors as I think having these in 2 lines actually would impede readibility |
-|  | ribbit/urls.py | No errors |
-|  | ribbit/wsgi.py | No errors |
-|  | wall/admin.py | No errors |
-|  | wall/apps.py | No errors |
-|  | wall/models.py | No errors |
-|  | wall/test_forms.py | No errors |
-|  | wall/test_models.py | No errors |
-|  | wall/test_views.py | No errors |
-|  | wall/tests.py | No errors |
-|  | wall/urls.py | No errors |
+|  | ribbit/urls.py | 0 errors - 0 warnings |
+|  | ribbit/wsgi.py | 0 errors - 0 warnings |
+|  | wall/admin.py | 0 errors - 0 warnings |
+|  | wall/apps.py | 0 errors - 0 warnings |
+|  | wall/models.py | 0 errors - 0 warnings |
+|  | wall/test_forms.py | 0 errors - 0 warnings |
+|  | wall/test_models.py | 0 errors - 0 warnings |
+|  | wall/test_views.py | 0 errors - 0 warnings |
+|  | wall/tests.py | 0 errors - 0 warnings |
+|  | wall/urls.py | 0 errors - 0 warnings |
 |  | wall/views.py | Ignored 2 long-line lint errors as I think having these in 2 lines actually would impede readibility  |
-|  | manage.py | No errors |
-|  | FILENAME | No errors |
-|  | FILENAME | No errors |
+|  | manage.py | 0 errors - 0 warnings |
+|  | FILENAME | 0 errors - 0 warnings |
+|  | FILENAME | 0 errors - 0 warnings |
 
 
 ### Data validation
