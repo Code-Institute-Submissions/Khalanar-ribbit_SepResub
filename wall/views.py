@@ -8,7 +8,6 @@ from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
 import re
 
 
-
 class Home(generic.ListView):
     '''Home view'''
     model = Post
@@ -118,7 +117,7 @@ class NewPostView(View):
             post = post_form.save(commit=False)
             post.slug = post_form.cleaned_data['title'].replace(" ", "_").lower()
             post.slug = re.sub(r'\W+', '', post.slug)
-           
+
             category = post_form.cleaned_data['category']
 
             messages.success(request, 'Post created!')
@@ -193,11 +192,14 @@ class EditProfile(LoginRequiredMixin, View):
                 profile = request.user.profile
             else:
                 print('NO USER')
-                profile = Profile.create(request.user)     
+                profile = Profile.create(request.user)
 
             if profile_form.cleaned_data['name'] != '':
                 profile.name = profile_form.cleaned_data['name']
-                messages.success(request, f'Name changed to {profile_form.cleaned_data["name"]}')
+                messages.success(
+                    request,
+                    f'Name changed to {profile_form.cleaned_data["name"]}'
+                )
 
             if request.FILES.get('profile_picture') is not None:
                 profile.profile_picture = request.FILES.get('profile_picture')
@@ -217,8 +219,10 @@ class ComingSoon(View):
         '''get method to render view'''
         return render(request, 'wall/coming_soon.html', {'feature': feature})
 
+
 def error_500(request, exception):
-    return render(request,'wall/500.html', status = 500)
+    return render(request, 'wall/500.html', status=500)
+
 
 def error_404(request, exception):
-    return render(request,'wall/404.html', status = 404)
+    return render(request, 'wall/404.html', status=404)

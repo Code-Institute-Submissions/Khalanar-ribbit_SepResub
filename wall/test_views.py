@@ -1,6 +1,7 @@
 from django.test import TestCase, Client
 from .models import Category, Post, User, Comment
 
+
 # Create your tests here.
 class TestViews(TestCase):
     '''Class to test project views'''
@@ -26,24 +27,33 @@ class TestViews(TestCase):
         '''test if new post loads'''
         category = Category.objects.create(name='python')
         user = User.objects.create(username='admin')
-        post = Post.objects.create(content='abc', slug='abc', category=category, author=user)
+        post = Post.objects.create(
+            content='abc',
+            slug='abc',
+            category=category,
+            author=user
+        )
         response = self.client.post('/new_post', {
             'post': post,
             'category': category,
             })
         self.assertRedirects(response, '/r/default')
-        # self.assertTemplateUsed('wall/new_post.html')
 
     def test_post_view(self):
         '''test if posts can be viewed'''
         category = Category.objects.create(name='python')
         user = User.objects.create(username='admin')
-        post = Post.objects.create(content='abc', slug='abc', category=category, author=user)
+        post = Post.objects.create(
+            content='abc',
+            slug='abc',
+            category=category,
+            author=user
+        )
         response = self.client.get(f'/p/{post.slug}/')
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed('wall/post_view.html')
         self.assertTrue(post.likes.count() >= 0)
-    
+
     def test_commingsoon(self):
         '''test if comingsoon page loads'''
         response = self.client.get('/coming_soon/test')
@@ -58,7 +68,10 @@ class TestViews(TestCase):
         c = Client()
         logged_in = c.login(username='admin', password='12345')
 
-        response = self.client.post('/edit_profile', {'username': 'newname', 'profile_picture': 'abc.jpg'})
+        response = self.client.post(
+            '/edit_profile',
+            {'username': 'newname', 'profile_picture': 'abc.jpg'}
+        )
         self.assertRedirects(response, '/accounts/login/?next=/edit_profile')
 
     def test_load_profile(self):

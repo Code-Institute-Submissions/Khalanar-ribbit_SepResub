@@ -1,7 +1,7 @@
 # ![](static/images/ribbit-favicon.png)ribbit
 
 
-Welcome to Ribbit. This is a gathering place. A forum where users can write about their favourite topics and their knowledge with the world. Users can create categories, posts and like and comment on other people's posts. Ribbit is a space to share and respect among the community is expected, there is a 0 tolerance to hatred policy.
+Welcome to Ribbit! This is a gathering place. A forum where users can write about their favourite topics and their knowledge with the world. Users can create categories, posts and like and comment on other people's posts. Ribbit is a space to share and respect among the community is expected, there is a 0 tolerance to hatred policy.
 
 Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 
@@ -254,6 +254,22 @@ Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
 | CSS | [Jigsaw W3C CSS validation service](https://jigsaw.w3.org/css-validator/validator) | 0 errors - 0 warnings  |
 | JS | [JSHint](https://jshint.com/) | Ignored warning about materializecss variables and arrow functions |
 | Python | Automatic Testing | 80% total coverage. Manually tested data validation on inputs |
+|  | ribbit/settings.py | Ignored 5 long-line lint errors as I think having these in 2 lines actually would impede readibility |
+|  | ribbit/urls.py | 0 errors - 0 warnings |
+|  | ribbit/wsgi.py | 0 errors - 0 warnings |
+|  | wall/admin.py | 0 errors - 0 warnings |
+|  | wall/apps.py | 0 errors - 0 warnings |
+|  | wall/models.py | 0 errors - 0 warnings |
+|  | wall/test_forms.py | 0 errors - 0 warnings |
+|  | wall/test_models.py | 0 errors - 0 warnings |
+|  | wall/test_views.py | 0 errors - 0 warnings |
+|  | wall/tests.py | 0 errors - 0 warnings |
+|  | wall/urls.py | 0 errors - 0 warnings |
+|  | wall/views.py | Ignored 2 long-line lint errors as I think having these in 2 lines actually would impede readibility  |
+|  | manage.py | 0 errors - 0 warnings |
+|  | FILENAME | 0 errors - 0 warnings |
+|  | FILENAME | 0 errors - 0 warnings |
+
 
 ### Data validation
 Manually tested all input fields and urls

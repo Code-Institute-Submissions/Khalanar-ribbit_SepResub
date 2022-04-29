@@ -3,7 +3,7 @@
         <span class="module-title">Explore</span>
         <ul id="categories-list">
             {% for category in categories %}
-            <li><a href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
+            <li><a title="open category page" href="{% url 'category_view' category.name %}">{{ category.name }}</a></li>
             {% endfor %}
             <li class="accent-bg"><a id="btn-create-category" href="{% url 'new_category' %}">add new</a></li>
         </ul>

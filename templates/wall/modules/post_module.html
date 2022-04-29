@@ -3,16 +3,16 @@
     <div class="card-content white-text padding-vertical-small">
         
         <div class="category-label">
-            <a href="{% url 'category_view' post.category %}" class="floaty-anchor"  alt="go to category page">r/{{ post.category }}</a>
-            <a href="{% url 'post_view' post.slug %}" class="full-anchor" alt="view full post"></a>
+            <a href="{% url 'category_view' post.category %}" class="floaty-anchor"  title="go to category page">r/{{ post.category }}</a>
+            <a href="{% url 'post_view' post.slug %}" class="full-anchor" title="view full post"></a>
             <span class="secondary-text small">by
-                <a href="{% url 'coming_soon' 'User Profiles' %}" class="floaty-anchor" alt="go to coming soon page">u/{{ post.author }}</a> in 
+                <a href="{% url 'coming_soon' 'User Profiles' %}" class="floaty-anchor" title="go to coming soon page">u/{{ post.author }}</a> in 
                 {{ post.date_created }}</span>
         </div>
         
         <span class="card-title">{{ post.title }}</span>
         <div class="mask-content">
-            <a href="{% url 'post_view' post.slug %}" class="full-anchor" alt="view full page"></a>
+            <a href="{% url 'post_view' post.slug %}" class="full-anchor" title="view full page"></a>
             <p>{{ post.content }}</p> 
         </div>
         {% if user.is_authenticated %}
