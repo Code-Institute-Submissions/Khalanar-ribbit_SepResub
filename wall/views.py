@@ -5,6 +5,7 @@ from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Post, Category, Profile
 from .forms import CommentForm, PostForm, CategoryForm, ProfileForm
+from django.contrib.auth.decorators import login_required
 import re
 
 
@@ -95,6 +96,13 @@ class CategoryView(View):
                 'posts': posts,
             },
         )
+
+@login_required
+def delete_category(request, category):
+    """ Delete a product from the store """
+    category = get_object_or_404(Category, name=category)
+    category.delete()
+    return redirect(reverse('home'))
 
 
 class NewPostView(View):

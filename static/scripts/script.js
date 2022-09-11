@@ -3,6 +3,8 @@ document.addEventListener('DOMContentLoaded', function() {
     var instances = M.Sidenav.init(navbar);
     var select = document.querySelectorAll('select');
     var instances = M.FormSelect.init(select);
+    var modal = document.querySelectorAll('.modal');
+    var instances = M.Modal.init(modal);
 });
 
 setTimeout( () => {
