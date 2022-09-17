@@ -40,7 +40,8 @@ Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 | G1 | User | Filter posts by categories | have quicker access to the information I value most |
 ||| **USER ACCOUNTS** ||
 | R1 | User | Register to Ribbit | have access to more features |
-| R1 | Registered User | Access account settings | change my username or profile picture |
+| R1 | Registered User | Access account settings | view my user settings |
+| R2 | Registered User | Modify account settings | change my username or profile picture |
 ||| **POSTING AND EXPLORING** ||
 | P1 | Registered User | Create new categories | that match my interests |
 | P1 | Registered User | Create new posts | so I can share my knowledge with the internet |
@@ -48,6 +49,8 @@ Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 | P1 | Registered User | Like other posts | to show the post author my appreciation |
 ||| **ADMIN** ||
 | A1 | Admin | Modify or delete any database entry | keep an organised environment |
+| A2 | Admin | Delete categories | avoid forbidden topics to be discussed or to delete when a category was created by mistake |
+| A3 | Admin | Delete posts | use this as a last measure to keep the forum under control or when a post was created by mistake |
 
 ### Project Goals
 
