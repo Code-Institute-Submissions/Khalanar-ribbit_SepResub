@@ -243,7 +243,7 @@ This database uses a SQL database through PostgreSQL.
 
 ## Deployment
 
-Deployed to Heroku, view [deployment](media/readme/deplyoment.md) for details.
+Deployed to Heroku, view [deployment](/media/readme/deployment.md) for details.
 
 
 ---
