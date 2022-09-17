@@ -99,10 +99,21 @@ class CategoryView(View):
 
 @login_required
 def delete_category(request, category):
-    """ Delete a product from the store """
+    """ Delete a category """
     category = get_object_or_404(Category, name=category)
     category.delete()
+    messages.success(request, 'Category successfully deleted')
     return redirect(reverse('home'))
+    
+@login_required
+def delete_post(request, slug):
+    """ Delete a post """
+    queryset = Post.objects.all()
+    post = get_object_or_404(queryset, slug=slug)
+    post.delete()
+    messages.success(request, 'Post successfully deleted')
+    return redirect(reverse('home'))
+    
 
 
 class NewPostView(View):

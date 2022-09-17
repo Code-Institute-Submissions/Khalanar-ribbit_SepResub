@@ -29,7 +29,20 @@
                     </div>
                 </div>
             </div>
-            Comments:
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Delete <span class="post-name">{{ post }}</span>?</h4>
+                    <p>Deleting <span class="post-name">{{ post }}</span> will also delete all comments and can NOT be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="modal-close waves-effect waves-gray btn-flat btn-secondary">I changed my mind</a>
+                    <a href="{% url 'delete_post' post.slug %}" class="modal-close waves-effect waves-red btn-flat btn-delete">Delete</a>
+                </div>
+            </div>
+            <div id="admin-actions" class="">
+                <a class="waves-effect waves-light modal-trigger a-delete" href="#modal1" id="modalButton">Delete post and comments</a>
+            </div>
+            <span>Comments:</span>
             <div class="card card-comment">
                 {% if comments.count > 0 %}
                     {% for comment in comments %}

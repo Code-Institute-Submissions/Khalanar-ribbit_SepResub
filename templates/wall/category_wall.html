@@ -7,26 +7,23 @@
             {% include 'wall/modules/user_module.html' %}
         </div>
         <div class="feed-content">
-            
-            
-  <!-- Modal Trigger -->
-  <a class="waves-effect waves-light btn modal-trigger" href="#modal1" id="modalButton">Modal</a>
 
-  <!-- Modal Structure -->
-  <div id="modal1" class="modal">
-    <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
-    </div>
-  </div>
-
+            <div id="modal1" class="modal">
+                <div class="modal-content">
+                    <h4>Delete {{ category }}?</h4>
+                    <p>This will delete all posts and comments under {{ category }} and can NOT be undone.</p>
+                </div>
+                <div class="modal-footer">
+                    <a href="" class="modal-close waves-effect waves-gray btn-flat btn-secondary">I changed my mind</a>
+                    <a href="{% url 'delete_category' category.name %}" class="modal-close waves-effect waves-red btn-flat btn-delete">Delete</a>
+                </div>
+            </div>
 
             <h2 id="page-title">r/{{ category.name }}</h2>
             {% if user.is_superuser %}
-                <div><span>delete</span></div>
+            
+            <a class="waves-effect waves-light modal-trigger a-delete" href="#modal1" id="modalButton">delete</a>
+
             {% endif %}
             {% if posts.count == 0 %}
             <div class="card">
@@ -44,12 +41,13 @@
 
     <script>
 
-document.getElementById("modalButton").addEventListener('click', () => {
-    console.log('click' + document.getElementById('modal1'))
-    let instance = M.Modal.getInstance(document.getElementById('modal1'))
-    console.log('instance' + instance)
-    instance.open()
-})
+        document.getElementById("modalButton").addEventListener('click', () => {
+            console.log('click' + document.getElementById('modal1'))
+            let instance = M.Modal.getInstance(document.getElementById('modal1'))
+            console.log('instance' + instance)
+            instance.open()
+        })
+        
     </script>
 
 {% endblock %}

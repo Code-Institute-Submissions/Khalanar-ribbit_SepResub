@@ -9,6 +9,7 @@
     --accent-color-secondary: #2bbbad;
     --font-color-darkmode-primary: #dbdbdbe7;
     --font-color-darkmode-secondary: #757575;
+    --color-danger: rgb(255, 72, 0);
 }
 
 /* BASE STYLES AND OVERWRITES */
@@ -219,7 +220,6 @@ input:-webkit-autofill{
 }
 
 /* BUTTONS */
-
 .btn-trans{
     background-color: transparent;
     border: none;
@@ -228,6 +228,23 @@ input:-webkit-autofill{
 
 .btn-trans:hover .material-icons{
     color:red;
+}
+
+.btn-delete{
+    background-color: var(--color-danger);
+    color: white;
+}
+
+.btn-cancel{
+    color: white;
+}
+
+.btn-secondary{
+    color: rgba(255, 255, 255, 0.505);
+}
+
+.a-delete{
+    color: var(--color-danger);
 }
 
 .btn-trans:focus{
@@ -254,6 +271,17 @@ input:-webkit-autofill{
 .btn-accent:hover{
     font-size:0.9em;
     background-color: var(--accent-color-secondary)
+}
+
+/* MODALS */
+
+.modal{
+    background-color: #373737;
+   
+}
+
+.modal-footer{
+    background-color: transparent !important;
 }
 
 /* CARDS */
@@ -423,6 +451,16 @@ input:-webkit-autofill{
 #profile-pic{
     height: 100px;
     width: 100px;
+}
+
+/* ADMIN ACTIONS */
+
+#admin-actions{
+    margin-bottom: 20px;
+}
+
+.post-name{
+    color: orange;
 }
 
 /* MEDIA QUERIES */
