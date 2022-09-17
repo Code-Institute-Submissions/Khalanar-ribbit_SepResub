@@ -243,7 +243,7 @@ This database uses a SQL database through PostgreSQL.
 
 ## Deployment
 
-Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
+Deployed to Heroku, view [deployment](media/readme/deplyoment.md) for details.
 
 ---
 
@@ -254,10 +254,15 @@ Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
 | What | Where | Test result |
 |----|-----|-----|
 | HTML | [Validator W3C Markup validation service](https://validator.w3.org/) | 0 errors - warnings found as linter cannot process templating |
+|  | Homepage as rendered | 0 errors - 0 warnings |
+|  | Post view as rendered | 0 errors - 0 warnings  |
+|  | New post as rendered | 0 errors - 0 warnings |
+|  | Edit profile as rendered | 0 errors - 0 warnings |
+|  | New category as rendered | 0 errors - 0 warnings |
+|  | Category view as rendered | 0 errors - 0 warnings |
 | CSS | [Jigsaw W3C CSS validation service](https://jigsaw.w3.org/css-validator/validator) | 0 errors - 0 warnings  |
 | JS | [JSHint](https://jshint.com/) | Ignored warning about materializecss variables and arrow functions |
 | Python | Automatic Testing | 80% total coverage. Manually tested data validation on inputs |
-|  | ribbit/settings.py | Ignored 5 long-line lint errors as I think having these in 2 lines actually would impede readibility |
 |  | ribbit/urls.py | 0 errors - 0 warnings |
 |  | ribbit/wsgi.py | 0 errors - 0 warnings |
 |  | wall/admin.py | 0 errors - 0 warnings |
@@ -268,10 +273,7 @@ Deployed to Heroku, view [deployment](static/docs/deplyoment.md) for details.
 |  | wall/test_views.py | 0 errors - 0 warnings |
 |  | wall/tests.py | 0 errors - 0 warnings |
 |  | wall/urls.py | 0 errors - 0 warnings |
-|  | wall/views.py | Ignored 2 long-line lint errors as I think having these in 2 lines actually would impede readibility  |
-|  | manage.py | 0 errors - 0 warnings |
-|  | FILENAME | 0 errors - 0 warnings |
-|  | FILENAME | 0 errors - 0 warnings |
+|  | wall/views.py | 0 errors - 0 warnings  |
 
 
 ### Data validation

@@ -258,7 +258,6 @@ input:-webkit-autofill{
 }
 
 .btn-form-br{
-    /* float:right; */
     right: 10px;
     bottom: 10px;
     position: absolute;

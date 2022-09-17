@@ -53,31 +53,30 @@
                         <hr class="comment-separator">
                     {% endfor %}
                 {% else %}
-                <div class="card-content white-text">
-                    <p>Be the first to comment</p>
-                </div>
-                <hr class="comment-separator">
+                    <div class="card-content white-text">
+                        <p>Be the first to comment</p>
+                    </div>
+                    <hr class="comment-separator">
                 {% endif %}
-                
                 {% if commented %}
-                <div>Comment posted!</div>
+                    <div>Comment posted!</div>
                 {% else %}
-
-                {% if user.is_authenticated %}
-                <div id="comment-field-container">
-                    <form method="post" style="">
-                        <div class="row">
-                            <div class="col s10">
-                                {{ comment_form | crispy }}
-                                {% csrf_token %}
+                    {% if user.is_authenticated %}
+                        <div id="comment-field-container">
+                            <form method="post">
+                                <div class="row">
+                                    <div class="col s10">
+                                        {{ comment_form | crispy }}
+                                        {% csrf_token %}
+                                    </div>
+                                </div>
+                                <div class="col s2">
+                                    <button type="submit" class="btn dark-btn btn-comment">Send</button>
+                                </div>
                             </div>
+                            </form>
                         </div>
-                        <div class="col s2">
-                            <button type="submit" class="btn dark-btn btn-comment">Send</button>
-                        </div>
-                    </form>
-                </div>
-                {% endif %}
+                    {% endif %}
                 {% endif %}
             </div>
         </div>

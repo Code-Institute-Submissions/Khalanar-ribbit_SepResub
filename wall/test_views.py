@@ -2,7 +2,6 @@ from django.test import TestCase, Client
 from .models import Category, Post, User, Comment
 
 
-# Create your tests here.
 class TestViews(TestCase):
     '''Class to test project views'''
     def test_homepage(self):

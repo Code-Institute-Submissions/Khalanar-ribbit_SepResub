@@ -35,7 +35,7 @@ class CategoryForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(CategoryForm, self).__init__(*args, **kwargs)
         self.helper = FormHelper()
-        
+
     class Meta:
         '''form meta info'''
         model = Category

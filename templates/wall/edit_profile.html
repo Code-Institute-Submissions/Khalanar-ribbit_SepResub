@@ -8,11 +8,13 @@
         <h2 id="page-title">Edit Profile</h2>
         <div class="card">
             <div class="card-content white-text small-top-padding">
-                <form method="post" style="" enctype="multipart/form-data">
+                <form method="post" enctype="multipart/form-data">
                     {{ profile_form | crispy }}
                     {% csrf_token %}
                     <button type="submit" class="btn dark-btn btn-form-br">Send</button>
+                   
                 </form>
+            </div>
         </div>
     </div>
 </div>

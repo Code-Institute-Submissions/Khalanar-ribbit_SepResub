@@ -97,6 +97,7 @@ class CategoryView(View):
             },
         )
 
+
 @login_required
 def delete_category(request, category):
     """ Delete a category """
@@ -104,7 +105,8 @@ def delete_category(request, category):
     category.delete()
     messages.success(request, 'Category successfully deleted')
     return redirect(reverse('home'))
-    
+
+
 @login_required
 def delete_post(request, slug):
     """ Delete a post """
@@ -113,7 +115,6 @@ def delete_post(request, slug):
     post.delete()
     messages.success(request, 'Post successfully deleted')
     return redirect(reverse('home'))
-    
 
 
 class NewPostView(View):
@@ -134,7 +135,8 @@ class NewPostView(View):
         if post_form.is_valid():
             post_form.instance.author = request.user
             post = post_form.save(commit=False)
-            post.slug = post_form.cleaned_data['title'].replace(" ", "_").lower()
+            title = post_form.cleaned_data['title']
+            post.slug = title.replace(" ", "_").lower()
             post.slug = re.sub(r'\W+', '', post.slug)
 
             category = post_form.cleaned_data['category']
@@ -224,7 +226,10 @@ class EditProfile(LoginRequiredMixin, View):
                 profile.profile_picture = request.FILES.get('profile_picture')
                 messages.success(request, 'Profile successfully updated')
 
-            if request.FILES.get('profile_picture') is None and profile_form.cleaned_data['name'] == '':
+            profile_pic = request.FILES.get('profile_picture')
+            name = profile_form.cleaned_data['name']
+
+            if profile_pic is None and name == '':
                 messages.success(request, 'No changes made to your profile')
             else:
                 profile.save()
