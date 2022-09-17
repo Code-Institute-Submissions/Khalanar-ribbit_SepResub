@@ -34,19 +34,19 @@ Open the project deployed to Heroku [here](https://ribbit-0.herokuapp.com/).
 | --- | --- | --- | --- |
 ||| **VIEWS AND NAVIGATION** ||
 | G1 | User | View homepage with all posts | to find posts that I may like to read |
-| G1 | User | Filter posts by categories | have quicker access to the information I value most |
-| G1 | User | View a list of categories | understand what topics exist |
-| G1 | User | Open a post | view the whole contents and any related comments |
-| G1 | User | Filter posts by categories | have quicker access to the information I value most |
+| G2 | User | Filter posts by categories | have quicker access to the information I value most |
+| G3 | User | View a list of categories | understand what topics exist |
+| G4 | User | Open a post | view the whole contents and any related comments |
+| G5 | User | Filter posts by categories | have quicker access to the information I value most |
 ||| **USER ACCOUNTS** ||
 | R1 | User | Register to Ribbit | have access to more features |
-| R1 | Registered User | Access account settings | view my user settings |
-| R2 | Registered User | Modify account settings | change my username or profile picture |
+| R2 | Registered User | Access account settings | view my user settings |
+| R3 | Registered User | Modify account settings | change my username or profile picture |
 ||| **POSTING AND EXPLORING** ||
 | P1 | Registered User | Create new categories | that match my interests |
-| P1 | Registered User | Create new posts | so I can share my knowledge with the internet |
-| P1 | Registered User | Comment on existing posts | show my opinion on other user's posts |
-| P1 | Registered User | Like other posts | to show the post author my appreciation |
+| P2 | Registered User | Create new posts | so I can share my knowledge with the internet |
+| P3 | Registered User | Comment on existing posts | show my opinion on other user's posts |
+| P4 | Registered User | Like other posts | to show the post author my appreciation |
 ||| **ADMIN** ||
 | A1 | Admin | Modify or delete any database entry | keep an organised environment |
 | A2 | Admin | Delete categories | avoid forbidden topics to be discussed or to delete when a category was created by mistake |
