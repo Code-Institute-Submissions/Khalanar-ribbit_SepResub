@@ -8,12 +8,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/png" href="{% static 'images/ribbit-favicon.png' %}" />
     <title>ribbit</title>
-    <!-- materialisecss css-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <!-- materialisecss js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <script src="{% static 'scripts/script.js' %}"></script>
-    <!-- material icons -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -60,7 +57,6 @@
 
     <section id="main">
         {% block content %}
-        <!-- page specific content -->
         {% endblock content %}
     </section>
 
