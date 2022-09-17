@@ -245,6 +245,7 @@ This database uses a SQL database through PostgreSQL.
 
 Deployed to Heroku, view [deployment](media/readme/deplyoment.md) for details.
 
+
 ---
 
 ## Testing
